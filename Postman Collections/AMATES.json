@@ -388,7 +388,17 @@
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
-                  "   });"
+                  "   });\r",
+                  "\r",
+                  "    const schema = {\r",
+                  "       \"type\":\"array\",\r",
+                  "       \"minItems\":1,\r",
+                  "       \"maxItems\":100,\r",
+                  "\r",
+                  "       }\r",
+                  "       pm.test(\"Валидация JSON схемы\",()=>{\r",
+                  "            pm.response.to.have.jsonSchema(schema)\r",
+                  "        })"
                 ],
                 "type": "text/javascript"
               }
