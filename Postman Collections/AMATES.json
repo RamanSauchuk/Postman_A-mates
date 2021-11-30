@@ -277,7 +277,7 @@
                   "       \"updatedAt\":{\r",
                   "            \"type\":\"integer\"},\r",
                   "        \"createdAt\":{\r",
-                  "            \"type\":\"integer\"},\r",
+                  "            \"type\":\"string\"},\r",
                   "        \"uid\":{\r",
                   "                \"type\":\"string\"},\r",
                   "\"deviceId\":{\r",
