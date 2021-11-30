@@ -263,7 +263,7 @@
               "script": {
                 "id": "273ea5dd-52eb-439a-a4dc-22c4d5bab6bb",
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
+                  "pm.test(\"Статус код 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "   var jsonData = pm.response.json()[\"uid\"];\r",
