@@ -372,7 +372,27 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{URL}}/v1/auth/users"
+            "url": {
+              "raw": "{{URL}}/v1/auth/users?offset=0&limit=20",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
           },
           "response": []
         },
