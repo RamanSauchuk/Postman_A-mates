@@ -393,7 +393,7 @@
                   "    const schema = {\r",
                   "       \"type\":\"array\",\r",
                   "       \"minItems\":1,\r",
-                  "       \"maxItems\":100,\r",
+                  "       \"maxItems\":1000,\r",
                   "\r",
                   "       }\r",
                   "       pm.test(\"Валидация JSON схемы\",()=>{\r",
