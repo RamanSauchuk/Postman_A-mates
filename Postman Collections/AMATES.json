@@ -2078,7 +2078,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"token\": {{token}}\n    \"deviceId\": \"jmeter4\",\n    \"platform\": \"firebase\"\n}",
+              "raw": "{\n    \"token\": {{token}},\n    \"deviceId\": \"jmeter4\",\n    \"platform\": \"firebase\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
