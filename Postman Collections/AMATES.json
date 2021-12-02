@@ -2649,7 +2649,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{URL}}/v1/badwords?offset=0&limit=5",
+              "raw": "{{URL}}/v1/badwords?offset=0&limit=2000",
               "host": [
                 "{{URL}}"
               ],
@@ -2664,7 +2664,7 @@
                 },
                 {
                   "key": "limit",
-                  "value": "5"
+                  "value": "2000"
                 }
               ]
             }
