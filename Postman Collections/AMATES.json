@@ -2754,7 +2754,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": null
+            "url": "{{URL}}/v1/badwords/"
           },
           "response": []
         }
