@@ -2744,19 +2744,6 @@
             "url": "{{URL}}/v1/badwords/clear"
           },
           "response": []
-        },
-        {
-          "name": "New Request",
-          "id": "4f589a1b-9b86-46c5-ac92-4c9b66156540",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/badwords/"
-          },
-          "response": []
         }
       ],
       "id": "0bbecc41-48f0-4bea-8c53-2288e474c958"
