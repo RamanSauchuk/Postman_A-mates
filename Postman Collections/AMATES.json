@@ -33,8 +33,6 @@
                   "    pm.globals.set(\"token\", jsonData);",
                   "});",
                   "",
-                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
-                  "    pm.globals.set(\"token\", jsonData);",
                   "",
                   "  "
                 ],
