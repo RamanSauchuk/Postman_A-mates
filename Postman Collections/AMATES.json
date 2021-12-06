@@ -338,7 +338,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"uid\": \"postman_updated_uid\",\n    \"firstName\": \"postman\",\n    \"secondName\": \"postmanovich\",\n    \"lastName\": \"PostmaNN\",\n    \"displayName\": \"POSTMAN\",\n    \"email\": \"dad.remote@gmail.com\",\n    \"phone\": \"+375296365867\",\n    \"secondPhone\": \"+375292162593\",\n    \"age\": 31,\n    \"gender\": 1\n}",
+              "raw": "{\n    \"role\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
