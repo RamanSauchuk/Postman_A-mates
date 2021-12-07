@@ -1521,7 +1521,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"itemId\": 500587\n}",
+              "raw": "{\n    \"itemId\": {{itemID}}\n}",
               "options": {
                 "raw": {
                   "language": "json"
