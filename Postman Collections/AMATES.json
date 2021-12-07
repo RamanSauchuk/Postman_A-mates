@@ -1493,7 +1493,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Для Ромы\",\n    \"limit\": 1\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"тест тест\",\n    \"limit\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
