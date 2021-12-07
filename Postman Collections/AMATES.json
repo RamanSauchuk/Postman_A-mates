@@ -951,7 +951,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\": \"jmetter23\",\n    \"description\": \"jmetter23\",\n    \"limit\": 13000\n}",
+              "raw": "{\n    \"title\": \"Нагружаем сервер\",\n    \"description\": \"jmetter23\",\n    \"limit\": 10\n}",
               "options": {
                 "raw": {
                   "language": "json"
