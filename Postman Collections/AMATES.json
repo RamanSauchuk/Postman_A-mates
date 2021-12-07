@@ -110,7 +110,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"deviceId\": \"jmeter2_\",\n    \"limit\": 20000\n}",
+              "raw": "{\n    \"deviceId\": \"jmeter2_\",\n    \"limit\": 10\n}",
               "options": {
                 "raw": {
                   "language": "json"
