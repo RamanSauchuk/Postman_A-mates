@@ -1903,6 +1903,19 @@
         },
         {
           "name": "bulk create replies (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "36848f9e-8461-4da8-a918-94de3f4dab20",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"replyID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "ad5e2249-5f38-43c7-9cf3-0a3355ebfa71",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
