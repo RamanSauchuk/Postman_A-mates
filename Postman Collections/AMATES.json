@@ -921,7 +921,9 @@
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
-                  "   });"
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"chatID\", jsonData);"
                 ],
                 "type": "text/javascript"
               }
