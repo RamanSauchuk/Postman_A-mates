@@ -1493,7 +1493,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"text message 123\",\n    \"limit\": 50000\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"text message 123\",\n    \"limit\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
