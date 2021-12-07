@@ -405,7 +405,7 @@
                   "        \"type\":\"object\",\r",
                   "        \"properties\":{\r",
                   "            \"users\":{\r",
-                  "       \"type\":\"array\",\r",
+                  "       \"type\":\"integer\",\r",
                   "        }\r",
                   "        }\r",
                   "           }\r",
