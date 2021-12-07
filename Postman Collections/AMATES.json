@@ -101,6 +101,19 @@
         },
         {
           "name": "bulk register (test)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "25fe80e0-9902-46f3-a500-53a91248b914",
+                "exec": [
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "3fcfcfc6-e454-4530-9a59-d5ac57a2f01e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -110,7 +123,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"deviceId\": \"jmeter2_\",\n    \"limit\": 10\n}",
+              "raw": "{\n    \"deviceId\": \"jmeter2_\",\n    \"limit\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
