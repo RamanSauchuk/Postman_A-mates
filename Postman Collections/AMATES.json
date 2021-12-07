@@ -1500,7 +1500,7 @@
                 }
               }
             },
-            "url": "{{URL}}/v1/chats/3/messages/bulk"
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/bulk"
           },
           "response": []
         },
