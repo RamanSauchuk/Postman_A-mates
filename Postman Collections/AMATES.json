@@ -272,7 +272,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "273ea5dd-52eb-439a-a4dc-22c4d5bab6bb",
+                "id": "cf1cd621-27e6-40e8-9085-e92ada1f9b95",
                 "exec": [
                   "pm.test(\"Статус код 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
