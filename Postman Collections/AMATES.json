@@ -123,7 +123,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"deviceId\": \"jmeter2_\",\n    \"limit\": 1\n}",
+              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"limit\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
