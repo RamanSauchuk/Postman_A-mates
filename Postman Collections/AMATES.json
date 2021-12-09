@@ -1521,7 +1521,7 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "get message by id",
           "id": "65791244-d28e-4f02-a0af-67cfe9b71229",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
