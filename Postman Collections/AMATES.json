@@ -354,7 +354,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n     \n    \"role\": \"0\"\n}",
+              "raw": "{\n    \"uid\": \"Sergey1fuck\",\n    \"firstName\": \"Sergey\",\n    \"secondName\": \"di\",\n    \"lastName\": \"Sinitsyn\",\n    \"displayName\": \"Dad\",\n    \"email\": \"dad.remote@gmail.com\",\n    \"phone\": \"+375296365867\",\n    \"secondPhone\": \"+375292162593\",\n    \"age\": 31,\n    \"gender\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
