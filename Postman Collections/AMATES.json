@@ -354,14 +354,14 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n     \"id\": 3451,\n    \"role\": \"0\"\n}",
+              "raw": "{\n     \n    \"role\": \"0\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": "{{URL}}/v1/auth/user"
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
           },
           "response": []
         },
