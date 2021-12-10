@@ -12,20 +12,9 @@
           "name": "register",
           "event": [
             {
-              "listen": "prerequest",
-              "script": {
-                "id": "6ef3db45-15bb-486e-aa69-8e1d7fe4cc6e",
-                "exec": [
-                  "var uuid = require('uuid');\r",
-                  "pm.environment.set(\"deviceId\", uuid.v4());"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
               "listen": "test",
               "script": {
-                "id": "2ef71462-a73c-4dce-8c71-0c6caec944c7",
+                "id": "41655e0e-dbad-48a3-8a45-64312e275d80",
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
@@ -33,8 +22,20 @@
                   "    pm.globals.set(\"token\", jsonData);",
                   "});",
                   "",
-                  "",
+                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  "    pm.globals.set(\"userId\", jsonData);",
                   "  "
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "01b640ab-6aa7-458f-9528-10b7b8e40a47",
+                "exec": [
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
                 ],
                 "type": "text/javascript"
               }
@@ -45,6 +46,9 @@
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "POST",
             "header": [],
             "body": {
