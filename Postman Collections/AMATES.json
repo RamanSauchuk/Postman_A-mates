@@ -413,6 +413,8 @@
                   "        \"properties\":{\r",
                   "            \"users\":{\r",
                   "       \"type\":\"array\",\r",
+                  "       \"minItems\":1,\r",
+                  "       \"maxItems\":999999,\r",
                   "        }\r",
                   "        }\r",
                   "           }\r",
