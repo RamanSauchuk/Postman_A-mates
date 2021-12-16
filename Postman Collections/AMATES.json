@@ -201,14 +201,11 @@
             "disableBodyPruning": true
           },
           "request": {
-            "auth": {
-              "type": "noauth"
-            },
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n     \"deviceId\":{{deviceId}}\r\n}",
+              "raw": "{\r\n     \"deviceId\":{{deviceId}},\r\n     \"id\":1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
