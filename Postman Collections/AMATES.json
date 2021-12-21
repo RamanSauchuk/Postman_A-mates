@@ -1538,7 +1538,16 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": null
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
           },
           "response": []
         }
