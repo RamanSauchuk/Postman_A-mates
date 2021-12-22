@@ -883,7 +883,7 @@
           "response": []
         },
         {
-          "name": "join to chat",
+          "name": "join to topic",
           "event": [
             {
               "listen": "test",
