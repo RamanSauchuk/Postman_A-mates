@@ -758,7 +758,7 @@
           "response": []
         },
         {
-          "name": "get all chats (debug)",
+          "name": "get all topics (debug)",
           "event": [
             {
               "listen": "test",
