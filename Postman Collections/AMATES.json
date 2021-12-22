@@ -975,7 +975,7 @@
           "response": []
         },
         {
-          "name": "mute chat",
+          "name": "mute topic",
           "event": [
             {
               "listen": "test",
