@@ -695,7 +695,7 @@
           "response": []
         },
         {
-          "name": "update chat",
+          "name": "update topic",
           "event": [
             {
               "listen": "test",
