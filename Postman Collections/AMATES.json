@@ -785,7 +785,7 @@
           "response": []
         },
         {
-          "name": "get updates for chats",
+          "name": "get updates for topics",
           "event": [
             {
               "listen": "test",
