@@ -719,7 +719,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\": \"Postman_test_edited\",\n    \"description\": \"editing_chat\"\n}",
+              "raw": "{\n    \"title\": \"Postman_totic_edited\",\n    \"description\": \"editing_chat\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
