@@ -731,7 +731,7 @@
           "response": []
         },
         {
-          "name": "get chat by id",
+          "name": "get topic by id",
           "event": [
             {
               "listen": "test",
