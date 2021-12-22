@@ -1002,7 +1002,7 @@
           "response": []
         },
         {
-          "name": "unmute chat",
+          "name": "unmute topic",
           "event": [
             {
               "listen": "test",
