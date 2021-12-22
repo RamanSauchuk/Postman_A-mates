@@ -683,7 +683,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\":\"Postman_test_create\",\n    \"description\": \"test\"\n}",
+              "raw": "{\n    \"title\":\"Топик для тестов обновления.День второй.Часть Вторая\",\n    \"description\": \"test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
