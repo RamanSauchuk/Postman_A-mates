@@ -1029,7 +1029,7 @@
           "response": []
         },
         {
-          "name": "delete chat",
+          "name": "delete topic",
           "event": [
             {
               "listen": "test",
