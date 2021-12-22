@@ -660,7 +660,7 @@
       "name": "Topics",
       "item": [
         {
-          "name": "create chat",
+          "name": "create topic",
           "event": [
             {
               "listen": "test",
