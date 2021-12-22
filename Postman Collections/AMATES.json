@@ -910,7 +910,7 @@
           "response": []
         },
         {
-          "name": "leave from chat",
+          "name": "leave from topic",
           "event": [
             {
               "listen": "test",
