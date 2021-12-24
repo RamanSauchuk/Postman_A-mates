@@ -683,7 +683,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\":\"Топик для тестов обновления.День второй.Часть Третья\",\n    \"description\": \"test\"\n}",
+              "raw": "{\n    \"title\":\"Обновление\",\n    \"description\": \"test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
