@@ -1088,7 +1088,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Ну шо?\",\n    \"mimetype\": \"text/plain\"\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"первый\",\n    \"mimetype\": \"text/plain\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
