@@ -1076,10 +1076,10 @@
                   "    pm.environment.set(\"itemID\", jsonData);\r",
                   "\r",
                   "\r",
-                  "for (var i=0; i<=1; i++)\r",
+                  "for (var i=0; i>=1; i++)\r",
                   "{   \r",
                   "   postman.setNextRequest(\"create message\")\r",
-                  "    \r",
+                  "    while \r",
                   "    };\r",
                   ""
                 ],
