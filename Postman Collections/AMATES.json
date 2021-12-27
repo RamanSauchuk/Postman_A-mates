@@ -1067,13 +1067,21 @@
             {
               "listen": "test",
               "script": {
-                "id": "371806ca-580a-4e7e-887c-81fd5bc4f15b",
+                "id": "77ddd58b-6e27-4beb-85c7-61ace2ec6f96",
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "var jsonData = pm.response.json()[\"id\"];\r",
-                  "    pm.environment.set(\"itemID\", jsonData);"
+                  "    pm.environment.set(\"itemID\", jsonData);\r",
+                  "\r",
+                  "\r",
+                  "for (var i=0; i<=4; i++)\r",
+                  "{   \r",
+                  "   postman.setNextRequest(\"create message\")\r",
+                  "    \r",
+                  "    };\r",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -1088,7 +1096,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"первый\",\n    \"mimetype\": \"text/plain\"\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"два сообщения\",\n    \"mimetype\": \"text/plain\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
