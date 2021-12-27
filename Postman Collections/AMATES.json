@@ -1067,7 +1067,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "77ddd58b-6e27-4beb-85c7-61ace2ec6f96",
+                "id": "b713f63e-1d6a-4283-8ff5-fe2a034e6de8",
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
@@ -1075,9 +1075,9 @@
                   "var jsonData = pm.response.json()[\"id\"];\r",
                   "    pm.environment.set(\"itemID\", jsonData);\r",
                   "\r",
-                  "\r",
-                  "for (var i=0; i>=4; i++)\r",
-                  "{   \r",
+                  "var i=0;\r",
+                  "while(i<=5)\r",
+                  "{   i++;\r",
                   "   postman.setNextRequest(\"create message\")\r",
                   "   \r",
                   "    };\r",
