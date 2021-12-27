@@ -1086,9 +1086,9 @@
               "script": {
                 "id": "8f7a5bf4-4962-4a81-9b70-0d15b4267d91",
                 "exec": [
-                  "var i=0;\r",
-                  "while (i<=5)\r",
-                  "{ i-1\r",
+                  "var i=5;\r",
+                  "while (i>=0)\r",
+                  "{ i--\r",
                   "   postman.setNextRequest(\"create message\")\r",
                   "   \r",
                   "    };"
