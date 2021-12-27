@@ -1084,7 +1084,7 @@
               "script": {
                 "id": "8f7a5bf4-4962-4a81-9b70-0d15b4267d91",
                 "exec": [
-                  "postman.setNextRequest(\"create message\");"
+                  ""
                 ],
                 "type": "text/javascript"
               }
