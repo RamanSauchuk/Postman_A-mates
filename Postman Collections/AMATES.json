@@ -1074,13 +1074,24 @@
                   "   });\r",
                   "var jsonData = pm.response.json()[\"id\"];\r",
                   "    pm.environment.set(\"itemID\", jsonData);\r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "8f7a5bf4-4962-4a81-9b70-0d15b4267d91",
+                "exec": [
                   "var i=0;\r",
                   "while (i<=5)\r",
                   "{ i++\r",
                   "   postman.setNextRequest(\"create message\")\r",
                   "   \r",
-                  "    };\r",
-                  ""
+                  "    };"
                 ],
                 "type": "text/javascript"
               }
