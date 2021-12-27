@@ -1075,6 +1075,7 @@
                   "var jsonData = pm.response.json()[\"id\"];\r",
                   "    pm.environment.set(\"itemID\", jsonData);\r",
                   "\r",
+                  "postman.setNextRequest(\"create message\");\r",
                   "postman.setNextRequest(\"create message\");"
                 ],
                 "type": "text/javascript"
