@@ -1090,7 +1090,7 @@
                   "while (i<=5)\r",
                   "{ i++\r",
                   "   postman.setNextRequest(\"create message\")\r",
-                  "   \r",
+                  "   break\r",
                   "    };"
                 ],
                 "type": "text/javascript"
