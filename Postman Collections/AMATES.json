@@ -1088,9 +1088,9 @@
                 "exec": [
                   "var i=0;\r",
                   "while (i<=5)\r",
-                  "{ i++\r",
+                  "{ i-1\r",
                   "   postman.setNextRequest(\"create message\")\r",
-                  "   break\r",
+                  "   \r",
                   "    };"
                 ],
                 "type": "text/javascript"
