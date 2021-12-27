@@ -1089,7 +1089,7 @@
                   "var i=5;\r",
                   "while (i>=0)\r",
                   "{ i--\r",
-                  "   postman.setNextRequest(\"create message\")\r",
+                  "   pm.sendRequest(\"https://www.onliner.by/\")\r",
                   "   \r",
                   "    };"
                 ],
