@@ -16,14 +16,14 @@
               "script": {
                 "id": "41655e0e-dbad-48a3-8a45-64312e275d80",
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "    var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
-                  "    pm.globals.set(\"token\", jsonData);",
-                  "});",
+                  "//pm.test(\"Status code is 200\", function () {",
+                  "  //  pm.response.to.have.status(200);",
+                  "    //var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "    //pm.globals.set(\"token\", jsonData);",
+                  "//});",
                   "",
-                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
-                  "    pm.globals.set(\"userId\", jsonData);",
+                  "//var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  " //   pm.globals.set(\"userId\", jsonData);",
                   "  "
                 ],
                 "type": "text/javascript"
@@ -34,8 +34,7 @@
               "script": {
                 "id": "01b640ab-6aa7-458f-9528-10b7b8e40a47",
                 "exec": [
-                  "var uuid = require('uuid');\r",
-                  "pm.environment.set(\"deviceId\", uuid.v4());"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -53,7 +52,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"android\"\n}",
+              "raw": "{\n    \"deviceId\": \"fdbdffghfg\",\n    \"platform\": \"android\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
