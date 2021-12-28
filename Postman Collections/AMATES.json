@@ -34,7 +34,8 @@
               "script": {
                 "id": "01b640ab-6aa7-458f-9528-10b7b8e40a47",
                 "exec": [
-                  ""
+                  "//var uuid = require('uuid');\r",
+                  "//pm.environment.set(\"deviceId\", uuid.v4());"
                 ],
                 "type": "text/javascript"
               }
