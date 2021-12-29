@@ -46,11 +46,14 @@
             "disableBodyPruning": true
           },
           "request": {
-            "auth": {
-              "type": "noauth"
-            },
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IkFkbWluIiwiaWQiOjF9LCJleHAiOjE2NDEzNjY3NDksImlhdCI6MTY0MDc2MTk0OX0.F4kj-mNyuxd8HTP3q72CKa28CXz3OmiqcNjlar-1Kx8",
+                "type": "string"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"deviceId\": \"fdbdffghfg\",\n    \"platform\": \"android\"\n}",
