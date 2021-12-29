@@ -16,14 +16,14 @@
               "script": {
                 "id": "41655e0e-dbad-48a3-8a45-64312e275d80",
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "  pm.response.to.have.status(200);",
-                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
-                  "pm.globals.set(\"token\", jsonData);",
-                  "});",
+                  "//pm.test(\"Status code is 200\", function () {",
+                  "  //pm.response.to.have.status(200);",
+                  "//var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "//pm.globals.set(\"token\", jsonData);",
+                  "//});",
                   "",
-                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
-                  "   pm.globals.set(\"userId\", jsonData);",
+                  "//var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  "  //pm.globals.set(\"userId\", jsonData);",
                   "  "
                 ],
                 "type": "text/javascript"
