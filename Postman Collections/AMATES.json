@@ -22,8 +22,8 @@
                   "pm.globals.set(\"token\", jsonData);",
                   "});",
                   "",
-                  "//var jsonData = pm.response.json()[\"user\"][\"id\"];",
-                  "  //pm.globals.set(\"userId\", jsonData);",
+                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  "pm.globals.set(\"userId\", jsonData);",
                   "  "
                 ],
                 "type": "text/javascript"
@@ -34,8 +34,8 @@
               "script": {
                 "id": "01b640ab-6aa7-458f-9528-10b7b8e40a47",
                 "exec": [
-                  "//var uuid = require('uuid');\r",
-                  "//pm.environment.set(\"deviceId\", uuid.v4());"
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
                 ],
                 "type": "text/javascript"
               }
@@ -57,7 +57,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"deviceId\": \"fdbdffghfg\",\n    \"platform\": \"android\"\n}",
+              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"android\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
