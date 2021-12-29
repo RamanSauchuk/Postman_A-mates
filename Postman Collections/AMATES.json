@@ -46,19 +46,13 @@
             "disableBodyPruning": true
           },
           "request": {
-            "auth": {
-              "type": "apikey",
-              "apikey": {
-                "key": "{{token}}",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IkFkbWluIiwiaWQiOjF9LCJleHAiOjE2NDEzNjY3NDksImlhdCI6MTY0MDc2MTk0OX0.F4kj-mNyuxd8HTP3q72CKa28CXz3OmiqcNjlar-1Kx8"
-              }
-            },
             "method": "POST",
             "header": [
               {
                 "key": "authtoken",
                 "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IkFkbWluIiwiaWQiOjF9LCJleHAiOjE2NDEzNjY3NDksImlhdCI6MTY0MDc2MTk0OX0.F4kj-mNyuxd8HTP3q72CKa28CXz3OmiqcNjlar-1Kx8",
-                "type": "string"
+                "type": "string",
+                "disabled": true
               }
             ],
             "body": {
