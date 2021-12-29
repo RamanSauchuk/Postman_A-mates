@@ -687,7 +687,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\":\"Обновление\",\n    \"description\": \"test\"\n}",
+              "raw": "{\n    \"title\":\"Топик для Саши 200 пользователей\",\n    \"description\": \"test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
