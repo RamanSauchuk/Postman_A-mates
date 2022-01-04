@@ -1,0 +1,2876 @@
+{
+  "info": {
+    "_postman_id": "889ed80c-311b-4e9a-b803-5903a3315edf",
+    "name": "SdkChats_Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "41655e0e-dbad-48a3-8a45-64312e275d80",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "pm.response.to.have.status(200);",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "pm.globals.set(\"token\", jsonData);",
+                  "});",
+                  "",
+                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  "pm.globals.set(\"userId\", jsonData);",
+                  "  "
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "01b640ab-6aa7-458f-9528-10b7b8e40a47",
+                "exec": [
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "07d393de-9a14-4ec2-8071-e952737ccd20",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IkFkbWluIiwiaWQiOjF9LCJleHAiOjE2NDEzNjY3NDksImlhdCI6MTY0MDc2MTk0OX0.F4kj-mNyuxd8HTP3q72CKa28CXz3OmiqcNjlar-1Kx8",
+                "type": "string",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"android\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/register"
+          },
+          "response": []
+        },
+        {
+          "name": "restore",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5c230426-f0bf-4da9-add0-a0dbde20e71e",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3c5b6b29-1127-49ab-ba68-81e5299ffa94",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \"deviceId\":{{deviceId}},\r\n     \"uid\":{{uid}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/restore"
+          },
+          "response": []
+        },
+        {
+          "name": "refresh token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d2857a00-2825-4efa-9b48-e35286562f8e",
+                "exec": [
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    var jsonData = pm.response.json()[\"refreshToken\"];",
+                  "    pm.globals.set(\"token\", jsonData);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a5ec911f-a786-4e9c-8b9a-918a8cee40fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/refresh"
+          },
+          "response": []
+        },
+        {
+          "name": "bulk register (test)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "25fe80e0-9902-46f3-a500-53a91248b914",
+                "exec": [
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3fcfcfc6-e454-4530-9a59-d5ac57a2f01e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"limit\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/register/bulk"
+          },
+          "response": []
+        },
+        {
+          "name": "login with google",
+          "_postman_id": "9da6e962-3d6d-48b3-a34b-d8144df1bca5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3MjA5MTA0Y2NkODkwYTVhZWRkNjczM2UwMjUyZjU0ZTg4MmYxM2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5NzQ2MTU2Njk1NTMtMjJlZjJsbXVkZnU2dWdlM2cxdjA5bTZvZmgxdjc1bmEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5NzQ2MTU2Njk1NTMtaTUwdXZoZjNlY3Rka2pya28wdmkxOGlsODJkZ3RmcTQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDg4MjQ4ODE5NTkyODU2Mjg2OTAiLCJlbWFpbCI6ImRhZC5yZW1vdGVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiLQodC10YDQs9C10Lkg0KHQuNC90LjRhtGL0L0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKd3JGTDV6dWJVSlNMTjVUblhSQXBaOXM2RG00dUU1SDhfVXhJd2E9czk2LWMiLCJnaXZlbl9uYW1lIjoi0KHQtdGA0LPQtdC5IiwiZmFtaWx5X25hbWUiOiLQodC40L3QuNGG0YvQvSIsImxvY2FsZSI6InJ1IiwiaWF0IjoxNjIwMDUxMDcxLCJleHAiOjE2MjAwNTQ2NzF9.xEOtRu0K2ul8W5yqD4Bs1vgSyyXwz6vDioXu8AZPmwKfmAo-egSVAO80wHypF7Yh32jINg9YJVg7TRiDnljFjbqkGeNv7klfy169Hucp5OBEC-MnvTu7HhOrDLoKpx5jNVgEsDm4y7nsXPD09Xln55KMJkQoQKA-OGp2ekmZQobGczNNQthxn8VsKZZMFaj2VBZlVcuUyvdA8anvfWw3-Mihe8SLP0wuRLtNJhiBSJiL7B289ECZa1FE4sj6rMZc_KvtXXiBRVlXhH4wMJGM2OsnSDe-9JaS-3g-J3-oEpy__41I5lNZXIgxgW_fskTGy7v08aHh_BwqPBcR8uoAxQ\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/google"
+          },
+          "response": []
+        },
+        {
+          "name": "link google account",
+          "_postman_id": "60dbb91e-10ee-4b15-a159-3850ed633739",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3MjA5MTA0Y2NkODkwYTVhZWRkNjczM2UwMjUyZjU0ZTg4MmYxM2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5NzQ2MTU2Njk1NTMtMjJlZjJsbXVkZnU2dWdlM2cxdjA5bTZvZmgxdjc1bmEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5NzQ2MTU2Njk1NTMtaTUwdXZoZjNlY3Rka2pya28wdmkxOGlsODJkZ3RmcTQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDg4MjQ4ODE5NTkyODU2Mjg2OTAiLCJlbWFpbCI6ImRhZC5yZW1vdGVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiLQodC10YDQs9C10Lkg0KHQuNC90LjRhtGL0L0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKd3JGTDV6dWJVSlNMTjVUblhSQXBaOXM2RG00dUU1SDhfVXhJd2E9czk2LWMiLCJnaXZlbl9uYW1lIjoi0KHQtdGA0LPQtdC5IiwiZmFtaWx5X25hbWUiOiLQodC40L3QuNGG0YvQvSIsImxvY2FsZSI6InJ1IiwiaWF0IjoxNjIwMDUxMDcxLCJleHAiOjE2MjAwNTQ2NzF9.xEOtRu0K2ul8W5yqD4Bs1vgSyyXwz6vDioXu8AZPmwKfmAo-egSVAO80wHypF7Yh32jINg9YJVg7TRiDnljFjbqkGeNv7klfy169Hucp5OBEC-MnvTu7HhOrDLoKpx5jNVgEsDm4y7nsXPD09Xln55KMJkQoQKA-OGp2ekmZQobGczNNQthxn8VsKZZMFaj2VBZlVcuUyvdA8anvfWw3-Mihe8SLP0wuRLtNJhiBSJiL7B289ECZa1FE4sj6rMZc_KvtXXiBRVlXhH4wMJGM2OsnSDe-9JaS-3g-J3-oEpy__41I5lNZXIgxgW_fskTGy7v08aHh_BwqPBcR8uoAxQ\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/linkGoogle"
+          },
+          "response": []
+        },
+        {
+          "name": "test",
+          "_postman_id": "2ff597a4-e5a3-4512-b19c-14bf7759d61f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/window?offset=10&limit=5&time=1624032791912&joined=false&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "10"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "time",
+                  "value": "1624032791912"
+                },
+                {
+                  "key": "joined",
+                  "value": "false"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "8683c250-d00f-4064-b0b3-75505375d4b9"
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "get current user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "efd39751-d837-4a6c-bea4-d206a67bf2a1",
+                "exec": [
+                  "pm.test(\"Статус код 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"uid\"];\r",
+                  "   pm.environment.set(\"uid\", jsonData);\r",
+                  "\r",
+                  "   var jsonData = pm.response.json().id;\r",
+                  "   pm.environment.set(\"userID\", jsonData);\r",
+                  "   \r",
+                  "\r",
+                  "   const schema = {\r",
+                  "       \"type\":\"object\",\r",
+                  "       \"properties\":{\r",
+                  "           \"id\":{\"type\":\"integer\"},     \r",
+                  "       \r",
+                  "       \"updatedAt\":{\r",
+                  "            \"type\":\"integer\"},\r",
+                  "        \"createdAt\":{\r",
+                  "            \"type\":\"integer\"},\r",
+                  "        \"uid\":{\r",
+                  "            \"type\":\"string\"},\r",
+                  "         \"deviceId\":{\r",
+                  "             \"type\":\"string\"},\r",
+                  "        //\"displayName\":{\r",
+                  "          //   \"type\":\"string\",\"null\"},\r",
+                  "        },\r",
+                  "        \"required\":[\"id\",\"updatedAt\",\"createdAt\", \"uid\",\"deviceId\",\"reported\"],\r",
+                  "              \"settings\":{\r",
+                  "        \"type\":\"object\",\r",
+                  "        \"properties\":{\r",
+                  "            \"likesMuted\":{\r",
+                  "               \"type\":\"boolean\"},\r",
+                  "          \r",
+                  "    }\r",
+                  "    }\r",
+                  "       \r",
+                  "   }\r",
+                  "        pm.test(\"Валидация JSON схемы\",()=>{\r",
+                  "            pm.response.to.have.jsonSchema(schema)\r",
+                  "        })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6fe4ae4c-e028-4855-99a9-1c8f158bb698",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/"
+          },
+          "response": []
+        },
+        {
+          "name": "update current user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "31c88e89-ef2a-419a-bb13-a1e08ca36d5f",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"uid\"];\r",
+                  "    pm.environment.set(\"uid\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b28fe071-5a9c-4202-b5ed-ecd0dbb9fb43",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uid\": \"uid\",\n    \"firstName\": \"firstName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get user by id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2cb79cdc-2b19-49fb-bfc4-a5b0791838df",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b89c0473-3b87-489b-84fa-a0735c18782b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f14165bf-19f3-48b3-ba4e-a314ab817da2",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "    const schema = {\r",
+                  "        \"type\":\"object\",\r",
+                  "        \"properties\":{\r",
+                  "            \"users\":{\r",
+                  "       \"type\":\"array\",\r",
+                  "       \"minItems\":1,\r",
+                  "       \"maxItems\":999999,\r",
+                  "        }\r",
+                  "        }\r",
+                  "           }\r",
+                  "       \r",
+                  "       pm.test(\"Валидация JSON схемы\",()=>{\r",
+                  "            pm.response.to.have.jsonSchema(schema)\r",
+                  "        })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3ba76baf-4a0f-4b8d-8542-b97d03da9fd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/auth/users?offset=0&limit=20",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get users with ids",
+          "_postman_id": "11b3c50b-625a-46ad-8a6b-2af8441da94c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ids\": [1000, 200000, 300000, 400000]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users"
+          },
+          "response": []
+        },
+        {
+          "name": "delete user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6346d470-ba7e-48da-b494-c7481db500a8",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "245c43df-be99-48f0-a848-3b7c7cb31d78",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get user settings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b4039569-5d18-4bfa-b38b-884431f543e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "aef6a0ed-20de-4e63-9afb-22e642683f8f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/settings"
+          },
+          "response": []
+        },
+        {
+          "name": "update user settings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "060dc245-0d3d-4f88-bd93-171a3f92810a",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9961079a-6ed9-4697-9453-3adac9805644",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"repliesMuted\": true,\r\n    \"likesMuted\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/settings"
+          },
+          "response": []
+        },
+        {
+          "name": "ban users",
+          "_postman_id": "a405c2ce-6242-44a9-aff0-83dd8061b483",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users/ban"
+          },
+          "response": []
+        },
+        {
+          "name": "unban users",
+          "_postman_id": "f42daf3f-6e8a-4d89-a322-e390a4ec61da",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users/unban"
+          },
+          "response": []
+        },
+        {
+          "name": "update uid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5a8e8786-7395-4174-95a0-863219807c0c",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5070f509-5f1d-46fe-80a1-a5c0ab80dd9c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"uid\": \"user_user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "9cb08bc5-8b22-4f33-acc8-55df9c77af05"
+    },
+    {
+      "name": "Topics",
+      "item": [
+        {
+          "name": "create topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c7141cd7-369e-462f-a37f-ca8f946432c5",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"chatID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "965fb12c-cf34-416d-96a3-00343bb6ba75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\":\"Складываем сюда сообщеньки для тестов переЛяма\",\n    \"description\": \"test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/"
+          },
+          "response": []
+        },
+        {
+          "name": "update topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0e78474f-f509-477c-a06a-9cd9aaf7c16e",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8e5e673f-24f1-43da-8f7f-3b069e42e3f8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Postman_topic_edited\",\n    \"description\": \"editing_chat\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get topic by id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b4039569-5d18-4bfa-b38b-884431f543e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e64736ef-85ac-4b6d-a8f1-a7e31806cdf7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get all topics (debug)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ff28f56b-491b-4682-bd92-f22b4e6ad0a0",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "caff2672-105d-4cc6-bc79-f494e89abb42",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/chats/getAll"
+          },
+          "response": []
+        },
+        {
+          "name": "get updates for topics",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9754076e-9bb5-4422-8f81-4a9dd657b468",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f6e47709-8527-48d8-b1e3-1100c7a0edc0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/updates?limit=5&time=1632933997911",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "updates"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "time",
+                  "value": "1632933997911"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get topics window",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "af5bf041-fbe3-4060-b16e-097b728486ec",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b6f1f8cf-acee-4080-a7e3-8b0f1f5e48ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/window?offset=0&limit=50&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "join to topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c3aa892b-0003-4187-a85e-f2abe96785fc",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a5952089-e98a-4f2f-9b23-8847f7a2fbab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/100/join"
+          },
+          "response": []
+        },
+        {
+          "name": "leave from topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7491f563-889f-43f4-a397-a9ca3d0a6bd3",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9b28ae74-4783-4570-a608-c8939f4f29ba",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/100/leave"
+          },
+          "response": []
+        },
+        {
+          "name": "create bulk (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "098791f4-071e-4bfa-9185-ca783515aa5e",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"chatID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "db5421b4-5dae-4059-89f7-0ea60755285d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Нагружаем сервер\",\n    \"description\": \"jmetter23\",\n    \"limit\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/bulk"
+          },
+          "response": []
+        },
+        {
+          "name": "mute topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1ae9d01c-183f-4230-8b11-f4e093ef977d",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "56bc2f80-74a4-4e27-9c9c-c50584f31a50",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/mute"
+          },
+          "response": []
+        },
+        {
+          "name": "unmute topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c29c8198-1c96-4faf-8392-d9261867f5d5",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cfbaed9d-c9fc-499b-80ef-da542ae63c5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/unmute"
+          },
+          "response": []
+        },
+        {
+          "name": "delete topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3cda3acd-15da-4892-a665-3f25e1465315",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f6248d0e-e37c-4f3d-a7e9-41212026c698",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
+    },
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "create message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b713f63e-1d6a-4283-8ff5-fe2a034e6de8",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"itemID\", jsonData);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "8f7a5bf4-4962-4a81-9b70-0d15b4267d91",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d72a137b-46c9-4091-92f0-a8ee768c3507",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"два сообщения\",\n    \"mimetype\": \"text/plain\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
+          },
+          "response": []
+        },
+        {
+          "name": "create message / type = image",
+          "_postman_id": "72ff195a-159c-468a-90a0-1abe693b0eb8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"image\",\n    \"imageId\": 28,\n    \"previewId\": 29,\n    \"mimetype\": \"image/jpeg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/"
+          },
+          "response": []
+        },
+        {
+          "name": "create message with text / type = image-text",
+          "_postman_id": "829a9f89-00f3-4a01-9b48-cf42be38a5b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": 1,\r\n    \"previewId\": 2,\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/"
+          },
+          "response": []
+        },
+        {
+          "name": "get first messages",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f4868a4f-d921-4755-b09e-ba9636c67e2c",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "65397ca0-85b6-43af-8ef0-7d4698c2eff2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/first?limit=20",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "first"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get last messages",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "09c09a6d-0035-4835-b883-6a01e8dbd543",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8583c03b-45eb-45df-a268-4d3133858a9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/last?limit=20&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "last"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get messages after",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bca0b1bc-59ea-4aa9-865d-bf87f204956e",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7e7d92e8-e4ca-4ad9-b3a6-7cc45c40bc13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/after?id=28&limit=10&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "after"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "28"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get messages before",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "02e34174-58ab-43a4-831f-3c7f2c92922c",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2500cad9-e8a0-4757-9a58-51e3ec442331",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/before?id=28&limit=50",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "before"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "28"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get messages updates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "378a26b4-10fe-45f2-a9e1-593eedda2657",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2a030040-c443-4e33-bc42-b1ad0cc0c53e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/updates?startId=400000&endId=400050&time=1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "updates"
+              ],
+              "query": [
+                {
+                  "key": "startId",
+                  "value": "400000"
+                },
+                {
+                  "key": "endId",
+                  "value": "400050"
+                },
+                {
+                  "key": "time",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get messages window",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9cacd0e4-d9a3-4fb8-978e-88cd3be95c81",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "62fc0d47-4202-4efe-880c-9f6ac167c4b9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=5&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4d8d3965-5d31-4d39-8812-deaaaa73bee9",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a719cc55-45d6-4412-bde1-6d04574d67ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"content\": \"Postman_message_edited\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "bulk create messages (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "750d51fb-c86a-4111-951e-c48a04984bfc",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"itemID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3750dc4f-bac2-4aa3-9fbf-a8db3a163b3f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"БАЛК 20 ШТ\",\n    \"limit\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/bulk"
+          },
+          "response": []
+        },
+        {
+          "name": "delete message",
+          "_postman_id": "12602bc1-6439-4447-80d7-fb99eb61d685",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get message by id",
+          "_postman_id": "65791244-d28e-4f02-a0af-67cfe9b71229",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
+    },
+    {
+      "name": "likes",
+      "item": [
+        {
+          "name": "like message",
+          "_postman_id": "9323e33f-ccb9-4afe-afa1-e321a4ccae01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"itemId\": {{itemID}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/likes/likeMessage"
+          },
+          "response": []
+        },
+        {
+          "name": "unlikeMessage",
+          "_postman_id": "fba5f6ab-3d1a-4a83-84ec-9a96646c084a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"itemId\": {{itemID}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/likes/unlikeMessage"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "abda36b9-59b7-439a-bff1-2efd25dad4de"
+    },
+    {
+      "name": "replies",
+      "item": [
+        {
+          "name": "create reply",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e0b43fed-620e-4d87-8850-3d6e7b75bc06",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"replyID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "15d63e2d-e6d9-4b6a-a00a-f4964d8f1e58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Postman_reply\",\n    \"mimetype\": \"text/plain\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "create reply / type = image",
+          "_postman_id": "32c4d194-c3bc-4039-a92e-ff856740b4f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"image\",\r\n    \"imageId\": 58,\r\n    \"previewId\": 59,\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/42/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "create reply / type = image-text",
+          "_postman_id": "1b34bde9-f518-40db-8e37-8033a0578fea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": 1,\r\n    \"previewId\": 2,\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/42/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "get first replies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e8c70fb-12b5-406f-8192-07c1872588b0",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "dbe209bb-07d2-4208-be68-83143596aebf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/first?limit=200&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "{{itemID}}",
+                "replies",
+                "first"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "200"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get last replies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ccc3d567-0fc4-40b8-ab6b-e056f8ff8293",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1e4979c2-999c-45e1-a7d8-cde9f1b62c62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/last?limit=5&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "{{itemID}}",
+                "replies",
+                "last"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get replies after",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "21ada803-882a-404c-9682-a5cc55740978",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1a873c03-2250-4a0e-8537-1805ba2e3803",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/after?id=2&limit=2",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "{{itemID}}",
+                "replies",
+                "after"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get replies before",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2f0d99a4-3235-4e2a-b849-3a079351d749",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b9bdcda3-d27a-4531-a01f-6904a3f7cf59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/before?id=2&limit=2",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "{{itemID}}",
+                "replies",
+                "before"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get updates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6bfbe345-e757-48be-8e25-a1f9dfe623ba",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "84f4ae08-f2e1-4a1f-9628-528a52ac7a6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/updates?startId=2&endId=3&time=0",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "{{itemID}}",
+                "replies",
+                "updates"
+              ],
+              "query": [
+                {
+                  "key": "startId",
+                  "value": "2"
+                },
+                {
+                  "key": "endId",
+                  "value": "3"
+                },
+                {
+                  "key": "time",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "bulk create replies (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "36848f9e-8461-4da8-a918-94de3f4dab20",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"replyID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "ad5e2249-5f38-43c7-9cf3-0a3355ebfa71",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"my reply\",\n    \"limit\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/3/messages/1/replies/bulk"
+          },
+          "response": []
+        },
+        {
+          "name": "update reply",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7741f621-8761-4a5f-8040-2505e3c17380",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "da010037-1059-4b8a-88b9-1afe257d66f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"text\",\r\n    \"content\": \"Postman_edited_reply\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/{{replyID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "delete Reply",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "21ff2921-64f8-40bf-87e6-3d7ae472d737",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8bb0e892-2110-4e16-8ec7-011cc54383fc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}/replies/{{replyID}}"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "7e1b83cf-0f2b-441a-a1e0-c098e32f1967"
+    },
+    {
+      "name": "reports",
+      "item": [
+        {
+          "name": "report chat",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "74844a08-8392-4450-b8f5-fc9a33ade38a",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "70a7fc54-7fdf-40bf-bad0-48c156234951",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"chatId\": {{chatID}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/chats"
+          },
+          "response": []
+        },
+        {
+          "name": "report message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8f1fa0b1-80ea-4a5b-b29b-63c637f4e688",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9ff0653e-56ad-42bf-b884-63973875a0b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"chatId\": {{chatID}},\n    \"messageId\": {{itemId}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/messages"
+          },
+          "response": []
+        },
+        {
+          "name": "report reply",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fb04668f-3a58-4952-9cd7-a8b9fe0b9398",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "37e96a42-4471-4095-8908-f669b66dff42",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"replyId\": {{replyID}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "report user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "afd491ef-d9e5-45b2-804e-01d5537a934f",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2ee85c0f-7407-4bff-a48c-ecf9f82c76cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": {{userID}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/users"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "348a58ab-7897-4c46-8539-58addbad38eb"
+    },
+    {
+      "name": "push notifications",
+      "item": [
+        {
+          "name": "register",
+          "_postman_id": "f6322ce4-90ef-4d9f-964d-7f7340eaf9bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": {{token}},\n    \"deviceId\": \"jmeter4\",\n    \"platform\": \"firebase\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/push/register"
+          },
+          "response": []
+        },
+        {
+          "name": "send push to test device",
+          "_postman_id": "bf90df8a-eb8b-4bb3-9f84-a6722b757ac7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/push/sendTest"
+          },
+          "response": []
+        },
+        {
+          "name": "unregister",
+          "_postman_id": "b583a206-8975-4e41-99cb-85a18c053ebc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"deviceId\": \"jmeter123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/push/unregister"
+          },
+          "response": []
+        },
+        {
+          "name": "switch push type",
+          "_postman_id": "646c7e49-f298-4d7a-a6db-18aee7775263",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"key\": \"message\",\r\n    \"enabled\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/push/switch"
+          },
+          "response": []
+        },
+        {
+          "name": "get config",
+          "_postman_id": "cd7b5785-7873-43e5-ac1e-a6703257c02a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/push/config"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "65f53c6e-4a0b-4548-8cda-b2fdf5156afe"
+    },
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "seach in messages",
+          "_postman_id": "6a2f2849-b25a-4716-850a-893bb5677d73",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"query\": \"nice\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/search"
+          },
+          "response": []
+        },
+        {
+          "name": "search in chats",
+          "_postman_id": "9faded51-9d02-4043-bed6-f0bf89e498ef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"query\": \"jmetter2\",\n    \"limit\": 20,\n    \"offset\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/search/chats"
+          },
+          "response": []
+        },
+        {
+          "name": "seach in replies",
+          "_postman_id": "2e484cb5-dfb0-4bd1-8412-570382ca85fa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"query\": \"hello\",\n    \"messageId\": 1,\n    \"limit\": 20,\n    \"offset\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/search/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "global search",
+          "_postman_id": "9b18bb9b-1727-48f5-885f-431ee917b2db",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/search/all?query=Title3&limit=10&offset=0",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "search",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "Title3"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "4ebf88d1-9dc6-434f-a1b7-a9c90a7ce679"
+    },
+    {
+      "name": "files",
+      "item": [
+        {
+          "name": "upload file",
+          "_postman_id": "419a1712-887c-461e-8dcc-0495c6e19f2a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/home/dad/SdkChats.postman_collection.json"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": "{{URL}}/v1/files/upload"
+          },
+          "response": []
+        },
+        {
+          "name": "get s3 file",
+          "_postman_id": "186e7b5b-d491-43fe-bd99-3becd9978542",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://sdk-chats.s3.amazonaws.com/73d7f7f927e5b99e49e37ccd1abba0e2"
+          },
+          "response": []
+        },
+        {
+          "name": "upload image",
+          "_postman_id": "342f83c9-ec79-4dab-98e4-197a8eb0087c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/C:/Users/Professional/Downloads/xxx/c1jP1MGDMgM.jpg"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": "{{URL}}/v1/files/uploadImage"
+          },
+          "response": []
+        },
+        {
+          "name": "upload large image",
+          "_postman_id": "26a38cf3-ccce-48fd-800c-0f90adb7d63d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/L:/Canon4/Processed/NastyaKoko/pre/IMG_1466.jpg"
+                }
+              ],
+              "options": {
+                "formdata": {}
+              }
+            },
+            "url": "{{URL}}/v1/files/uploadImage"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "285bfdb2-40ca-4e30-bdff-701de9a236d7"
+    },
+    {
+      "name": "metrics",
+      "item": [
+        {
+          "name": "create metrics",
+          "_postman_id": "331a41fa-3d73-483f-bdd8-83cb55a7f78a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"events\": [\r\n        { \r\n            \"key\": \"topic.seen\", \r\n            \"id\": 1,\r\n            \"status\": false,\r\n            \"createdAt\": 1234,\r\n            \"platform\": \"android\",\r\n            \"version\": \"1\",\r\n            \"language\": \"RU_ru\"\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/metrics"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "2913b02c-d3fa-441c-8a7b-fe862961c08a"
+    },
+    {
+      "name": "test devices",
+      "item": [
+        {
+          "name": "create",
+          "_postman_id": "2101a1af-f9be-4a51-b931-00e4a6a22db4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"sergey\",\r\n    \"token\": \"12341234123412341234\",\r\n\t\"platform\": \"firebase\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/devices"
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "_postman_id": "9e8501cc-f353-41df-a5e0-d5e9ebbfa6bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/devices"
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "_postman_id": "acc20abf-c379-47e0-84ed-4df862f17b64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/devices/2"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "f00acde4-aa32-4479-b012-493dec4caa8f"
+    },
+    {
+      "name": "policies",
+      "item": [
+        {
+          "name": "create or update",
+          "_postman_id": "3a6cb364-9ff9-40b2-9250-f53ca76cd13a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"key\": \"push-controls-enabled\",\r\n    \"value\": \"true\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/policies"
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "_postman_id": "9ad35dc4-d325-47de-b117-3c8295e9d590",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/policies/"
+          },
+          "response": []
+        },
+        {
+          "name": "get by key",
+          "_postman_id": "dfe06235-9e0e-45d1-8606-507f806553d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/policies/allow-creation"
+          },
+          "response": []
+        },
+        {
+          "name": "delete by key",
+          "_postman_id": "e0dd88ac-0309-4a7e-a4bf-91b5619136e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/policies/push-controls-enabled"
+          },
+          "response": []
+        },
+        {
+          "name": "get all my policies",
+          "_postman_id": "d533e6f9-c127-4500-9629-9219d83abba6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/policies/my"
+          },
+          "response": []
+        },
+        {
+          "name": "create or update my policy",
+          "_postman_id": "922dd3e5-9cd5-4843-999c-bd127370a6c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"key\": \"replies_muted\",\r\n    \"value\": \"true\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/policies/my"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "687a9dc1-7ce8-4f0d-b2d6-56ac121182e5"
+    },
+    {
+      "name": "bad words",
+      "item": [
+        {
+          "name": "create",
+          "_postman_id": "8910202f-db30-4073-aff7-a52ccff53819",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"word\": \"hui\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/badwords"
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "_postman_id": "9b32e4b0-c8bc-43ac-b554-eb4dafccec2f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/badwords?offset=0&limit=2000",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "badwords"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "2000"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "_postman_id": "a892da37-13d2-4275-8664-5a99ead8afc0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"word\": \"hui3\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/badwords/1"
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "_postman_id": "dae4f0b6-c9d7-415f-86a9-258e9e55424a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/1"
+          },
+          "response": []
+        },
+        {
+          "name": "get default words",
+          "_postman_id": "5f514257-c48c-4b9c-999f-8d4e805dbe14",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/list"
+          },
+          "response": []
+        },
+        {
+          "name": "import default words",
+          "_postman_id": "bb224bb2-4fad-405d-9aeb-d4403133ba4f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/import"
+          },
+          "response": []
+        },
+        {
+          "name": "delete all",
+          "_postman_id": "dc13cc88-7139-4099-a214-339a36b0fb18",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/clear"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "0bbecc41-48f0-4bea-8c53-2288e474c958"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": {
+      "value": "{{token}}",
+      "in": "header",
+      "key": "authtoken"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "d55dedcd-b0b8-484c-9cc9-ff6ba707f9ce"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "84f27634-04e9-432f-a757-a5630bc1addf"
+      }
+    }
+  ]
+}
