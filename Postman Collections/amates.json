@@ -157,7 +157,7 @@
           "response": []
         },
         {
-          "name": "register(check 10error)",
+          "name": "register(check error 10)",
           "event": [
             {
               "listen": "test",
