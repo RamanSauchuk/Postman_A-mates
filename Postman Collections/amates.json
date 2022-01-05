@@ -267,10 +267,10 @@
                   " pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
                   "\r",
                   " //перезаписываем токены после Restore\r",
-                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
                   "pm.globals.set(\"refreshToken\", jsonData);\r",
                   "\r",
-                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];\r",
                   "pm.globals.set(\"token\", jsonData);"
                 ],
                 "type": "text/javascript"
