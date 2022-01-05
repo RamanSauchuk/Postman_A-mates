@@ -449,28 +449,6 @@
           "response": []
         },
         {
-          "name": "login with google",
-          "id": "9da6e962-3d6d-48b3-a34b-d8144df1bca5",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"token\":\"{{idToken}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/google"
-          },
-          "response": []
-        },
-        {
           "name": "link google account",
           "id": "60dbb91e-10ee-4b15-a159-3850ed633739",
           "protocolProfileBehavior": {
