@@ -449,51 +449,6 @@
           "response": []
         },
         {
-          "name": "test",
-          "id": "2ff597a4-e5a3-4512-b19c-14bf7759d61f",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/chats/window?offset=10&limit=5&time=1624032791912&joined=false&authors=true",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "chats",
-                "window"
-              ],
-              "query": [
-                {
-                  "key": "offset",
-                  "value": "10"
-                },
-                {
-                  "key": "limit",
-                  "value": "5"
-                },
-                {
-                  "key": "time",
-                  "value": "1624032791912"
-                },
-                {
-                  "key": "joined",
-                  "value": "false"
-                },
-                {
-                  "key": "authors",
-                  "value": "true"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "register Copy",
           "event": [
             {
