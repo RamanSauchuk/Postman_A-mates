@@ -449,28 +449,6 @@
           "response": []
         },
         {
-          "name": "link google account",
-          "id": "60dbb91e-10ee-4b15-a159-3850ed633739",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3MjA5MTA0Y2NkODkwYTVhZWRkNjczM2UwMjUyZjU0ZTg4MmYxM2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5NzQ2MTU2Njk1NTMtMjJlZjJsbXVkZnU2dWdlM2cxdjA5bTZvZmgxdjc1bmEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5NzQ2MTU2Njk1NTMtaTUwdXZoZjNlY3Rka2pya28wdmkxOGlsODJkZ3RmcTQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDg4MjQ4ODE5NTkyODU2Mjg2OTAiLCJlbWFpbCI6ImRhZC5yZW1vdGVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiLQodC10YDQs9C10Lkg0KHQuNC90LjRhtGL0L0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKd3JGTDV6dWJVSlNMTjVUblhSQXBaOXM2RG00dUU1SDhfVXhJd2E9czk2LWMiLCJnaXZlbl9uYW1lIjoi0KHQtdGA0LPQtdC5IiwiZmFtaWx5X25hbWUiOiLQodC40L3QuNGG0YvQvSIsImxvY2FsZSI6InJ1IiwiaWF0IjoxNjIwMDUxMDcxLCJleHAiOjE2MjAwNTQ2NzF9.xEOtRu0K2ul8W5yqD4Bs1vgSyyXwz6vDioXu8AZPmwKfmAo-egSVAO80wHypF7Yh32jINg9YJVg7TRiDnljFjbqkGeNv7klfy169Hucp5OBEC-MnvTu7HhOrDLoKpx5jNVgEsDm4y7nsXPD09Xln55KMJkQoQKA-OGp2ekmZQobGczNNQthxn8VsKZZMFaj2VBZlVcuUyvdA8anvfWw3-Mihe8SLP0wuRLtNJhiBSJiL7B289ECZa1FE4sj6rMZc_KvtXXiBRVlXhH4wMJGM2OsnSDe-9JaS-3g-J3-oEpy__41I5lNZXIgxgW_fskTGy7v08aHh_BwqPBcR8uoAxQ\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/linkGoogle"
-          },
-          "response": []
-        },
-        {
           "name": "test",
           "id": "2ff597a4-e5a3-4512-b19c-14bf7759d61f",
           "protocolProfileBehavior": {
