@@ -293,7 +293,7 @@
           "response": []
         },
         {
-          "name": "restore Copy",
+          "name": "restore(checking \"user not found\" )",
           "event": [
             {
               "listen": "test",
