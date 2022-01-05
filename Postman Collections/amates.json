@@ -364,6 +364,45 @@
           "response": []
         },
         {
+          "name": "refresh token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d2857a00-2825-4efa-9b48-e35286562f8e",
+                "exec": [
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    var jsonData = pm.response.json()[\"refreshToken\"];",
+                  "    pm.globals.set(\"token\", jsonData);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "a5ec911f-a786-4e9c-8b9a-918a8cee40fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/refresh"
+          },
+          "response": []
+        },
+        {
           "name": "bulk register (test)",
           "event": [
             {
@@ -484,45 +523,6 @@
                 }
               ]
             }
-          },
-          "response": []
-        },
-        {
-          "name": "refresh token",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "d2857a00-2825-4efa-9b48-e35286562f8e",
-                "exec": [
-                  "",
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "    var jsonData = pm.response.json()[\"refreshToken\"];",
-                  "    pm.globals.set(\"token\", jsonData);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "a5ec911f-a786-4e9c-8b9a-918a8cee40fe",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"refreshToken\": \"{{token}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/refresh"
           },
           "response": []
         },
