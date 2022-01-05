@@ -466,7 +466,7 @@
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "   var jsonData = pm.response.json()[\"uid\"];\r",
-                  "   pm.environment.set(\"uid\", jsonData);\r",
+                  "   pm.globals.set(\"uid\", jsonData);\r",
                   "\r",
                   "   var jsonData = pm.response.json().id;\r",
                   "   pm.environment.set(\"userID\", jsonData);\r",
@@ -514,7 +514,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{URL}}/v1/auth/user/"
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
           },
           "response": []
         },
