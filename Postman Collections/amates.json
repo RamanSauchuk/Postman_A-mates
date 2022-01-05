@@ -428,7 +428,7 @@
                 }
               }
             },
-            "url": "{{URL}}/v1/auth/user/{{userID}}"
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
           },
           "response": []
         },
