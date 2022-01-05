@@ -234,7 +234,36 @@
               "script": {
                 "id": "5c230426-f0bf-4da9-add0-a0dbde20e71e",
                 "exec": [
-                  ""
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const schema = {\r",
+                  "    \"type\":\"object\", \r",
+                  "       \"properties\":{\r",
+                  "           \"tokens\":{\r",
+                  "               \"type\":\"object\",\r",
+                  "               \"required\":[\"accessToken\",\"refreshToken\"],\r",
+                  "              \"properties\":{\r",
+                  "                \"accessToken\":{\r",
+                  "                    \"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"refreshToken\":{\r",
+                  "\"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"message\":{\r",
+                  "                    \"const\":\"user already exist\"\r",
+                  "                }\r",
+                  "              }\r",
+                  "            }\r",
+                  "        }\r",
+                  "    \r",
+                  "};\r",
+                  " pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
+                  "\r",
+                  "pm.globals.set(\"refreshToken\", jsonData);\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
+                  "pm.globals.set(\"token\", jsonData);"
                 ],
                 "type": "text/javascript"
               }
@@ -252,7 +281,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n     \"deviceId\":{{deviceId}},\r\n     \"uid\":{{uid}}\r\n}",
+              "raw": "{\r\n     \"deviceId\":\"{{deviceId}}\",\r\n     \"uid\":\"{{uid}}\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
