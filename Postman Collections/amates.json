@@ -508,7 +508,7 @@
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "   var jsonData = pm.response.json()[\"uid\"];\r",
-                  "    pm.environment.set(\"uid\", jsonData);"
+                  "    pm.global.set(\"uid\", jsonData);"
                 ],
                 "type": "text/javascript"
               }
@@ -523,7 +523,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"uid\": \"uid\",\n    \"firstName\": \"firstName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
+              "raw": "{\n    \"uid\": \"uid\",\n    \"firstName\": \"firstyName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
