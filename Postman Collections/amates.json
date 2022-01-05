@@ -27,7 +27,7 @@
                   "var jsonData = pm.response.json()[\"user\"][\"id\"];",
                   "pm.globals.set(\"userId\", jsonData);",
                   "",
-                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];",
                   "pm.globals.set(\"token\", jsonData);",
                   "",
                   "",
