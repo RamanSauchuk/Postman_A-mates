@@ -352,6 +352,154 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "register Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2d0ba4a1-1a49-4162-bb5c-f7cfaa459da4",
+                "exec": [
+                  "// Проверка 200 статуса",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "pm.response.to.have.status(200);",
+                  "//заносим в глобальную переменную токен",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "pm.globals.set(\"refreshToken\", jsonData);",
+                  "});",
+                  "",
+                  "var jsonData = pm.response.json()[\"user\"][\"id\"];",
+                  "pm.globals.set(\"userId\", jsonData);",
+                  "",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
+                  "pm.globals.set(\"token\", jsonData);",
+                  "",
+                  "",
+                  "  const schema = {",
+                  "       \"type\":\"object\",",
+                  "       \"required\": [\"user\",\"tokens\"],",
+                  "       \"properties\":{",
+                  "           \"user\":{",
+                  "               \"type\":\"object\",",
+                  "    \"required\": [",
+                  "        \"id\",\"updatedAt\", \"createdAt\", \"uid\",\"deviceId\",\"reported\"",
+                  "        ],",
+                  "               \"properties\":{                     ",
+                  "        \"id\":{",
+                  "            \"type\":\"integer\"",
+                  "            },     ",
+                  "       \"updatedAt\":{",
+                  "           \"type\":\"integer\"",
+                  "           },",
+                  "        \"createdAt\":{",
+                  "            \"type\":\"integer\"",
+                  "            },",
+                  "        \"uid\":{",
+                  "            \"type\":\"string\"",
+                  "            },",
+                  "         \"deviceId\":{",
+                  "             \"type\":\"string\"",
+                  "             },",
+                  "        \"displayName\":{\"enum\":[null,\"string\"]",
+                  "            },",
+                  "            \"avatar\":{",
+                  "                \"type\":\"null\"",
+                  "                },",
+                  "                \"role\":{\"enum\":[0,1]},",
+                  "                \"reported\":{",
+                  "                    \"const\":false",
+                  "                    },",
+                  "                 \"settings\":{",
+                  "                    \"type\":\"object\",",
+                  "                    \"properties\":{                    ",
+                  "               \"likesMuted\":{",
+                  "              \"const\":false",
+                  "               },",
+                  "              \"repliesMuted\":{",
+                  "              \"const\":false",
+                  "               },",
+                  "              \"commentsMuted\":{",
+                  "               \"const\":false",
+                  "               },",
+                  "               \"notCommentsMuted\":{",
+                  "               \"const\":false",
+                  "               },",
+                  "               \"adminsTopicMuted\":{",
+                  "               \"const\":false",
+                  "               },               ",
+                  "                    },",
+                  "                       },",
+                  "                    \"banned\":{",
+                  "                        \"const\":false",
+                  "                        },",
+                  "               \"deleted\":{",
+                  "                   \"const\":false",
+                  "                   },",
+                  "        },",
+                  "       },",
+                  "       },  ",
+                  "       \"properties\":{",
+                  "           \"tokens\":{",
+                  "               \"type\":\"object\",",
+                  "               \"required\":[\"accessToken\",\"refreshToken\"],",
+                  "               \"properties\":{",
+                  "               \"accessToken\":{",
+                  "                   \"type\":\"string\"",
+                  "               },",
+                  "               \"refreshToken\":{",
+                  "                   \"type\":\"string\"",
+                  "               },",
+                  "         },",
+                  "           },",
+                  "       }, ",
+                  "         };",
+                  "           pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});",
+                  "    ",
+                  "       ",
+                  "  "
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "cc383977-de31-4f04-8213-68a570767353",
+                "exec": [
+                  "var uuid = require('uuid');\r",
+                  "pm.environment.set(\"deviceId\", uuid.v4());"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "007059d6-8117-4cdc-809e-7f6e11dc631d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authtoken",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6IkFkbWluIiwiaWQiOjF9LCJleHAiOjE2NDEzNjY3NDksImlhdCI6MTY0MDc2MTk0OX0.F4kj-mNyuxd8HTP3q72CKa28CXz3OmiqcNjlar-1Kx8",
+                "type": "string",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"android\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/register"
+          },
+          "response": []
         }
       ],
       "id": "8683c250-d00f-4064-b0b3-75505375d4b9"
