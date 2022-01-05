@@ -703,7 +703,31 @@
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
-                  "   });"
+                  "   });\r",
+                  "\r",
+                  "   var schema={\r",
+                  "                  \"type\":\"object\",\r",
+                  "                    \"properties\":{                    \r",
+                  "               \"likesMuted\":{\r",
+                  "              \"const\":false\r",
+                  "               },\r",
+                  "              \"repliesMuted\":{\r",
+                  "              \"const\":false\r",
+                  "               },\r",
+                  "              \"commentsMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },\r",
+                  "               \"notCommentsMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },\r",
+                  "               \"adminsTopicMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },               \r",
+                  "                    },  \r",
+                  "                                  \r",
+                  "\r",
+                  "   }\r",
+                  "     pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});"
                 ],
                 "type": "text/javascript"
               }
