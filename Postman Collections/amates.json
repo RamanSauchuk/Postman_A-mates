@@ -157,7 +157,7 @@
           "response": []
         },
         {
-          "name": "register(check error 10)",
+          "name": "register(checking \"user already exist\")",
           "event": [
             {
               "listen": "test",
