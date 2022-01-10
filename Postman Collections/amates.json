@@ -2701,6 +2701,24 @@
         },
         {
           "name": "upload image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "if (pm.response.to.have.status(401)){\r",
+                  " postman.setNextRequest(\"{{URL}}\")\r",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "342f83c9-ec79-4dab-98e4-197a8eb0087c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2714,7 +2732,7 @@
                 {
                   "key": "file",
                   "type": "file",
-                  "src": "/C:/Users/Professional/Downloads/xxx/c1jP1MGDMgM.jpg"
+                  "src": "/D:/downloads/hqdefault.jpg"
                 }
               ]
             },
