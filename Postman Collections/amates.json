@@ -1810,9 +1810,11 @@
               "script": {
                 "id": "506eec9d-609b-40bd-a066-399f5b97f4fa",
                 "exec": [
-                  "if (pm.response.to.have.status(401)) {\r",
-                  "    postman.setNextRequest(\"likeMessage\");\r",
-                  "}"
+                  "if (pm.response.status===401) { \r",
+                  "\r",
+                  "pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+                  "    console.log(response.json());\r",
+                  "})};"
                 ],
                 "type": "text/javascript"
               }
