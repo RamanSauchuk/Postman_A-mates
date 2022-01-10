@@ -2712,7 +2712,7 @@
                   "});\r",
                   "\r",
                   "if (pm.response.to.have.status(401)){\r",
-                  " postman.setNextRequest(\"register\")\r",
+                  " postman.setNextRequest('register')\r",
                   "}"
                 ],
                 "type": "text/javascript"
