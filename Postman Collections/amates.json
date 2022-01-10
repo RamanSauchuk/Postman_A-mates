@@ -1811,7 +1811,7 @@
                 "id": "506eec9d-609b-40bd-a066-399f5b97f4fa",
                 "exec": [
                   "if (pm.response.to.have.status(401)) {\r",
-                  "    postman.setNextRequest(\"restore\");\r",
+                  "    postman.setNextRequest(\"likeMessage\");\r",
                   "}"
                 ],
                 "type": "text/javascript"
