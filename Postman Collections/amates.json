@@ -1804,6 +1804,20 @@
       "item": [
         {
           "name": "like message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "506eec9d-609b-40bd-a066-399f5b97f4fa",
+                "exec": [
+                  "if (responseCode.code === 401) {\r",
+                  "    postman.setNextRequest(\"restore\");\r",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "9323e33f-ccb9-4afe-afa1-e321a4ccae01",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
