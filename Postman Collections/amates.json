@@ -2707,10 +2707,6 @@
               "script": {
                 "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "});\r",
-                  "\r",
                   "if (responseCode.code === 401) {\r",
                   "    postman.setNextRequest(\"restore\");\r",
                   "}"
