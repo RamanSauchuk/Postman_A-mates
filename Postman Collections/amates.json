@@ -1261,6 +1261,33 @@
             "url": "{{URL}}/v1/chats/{{chatID}}"
           },
           "response": []
+        },
+        {
+          "name": "get topic by id Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8ad73032-b2ef-4ae5-83d4-561d132ee609",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "715b772f-00fe-4e8e-9731-2383d579cc3d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
