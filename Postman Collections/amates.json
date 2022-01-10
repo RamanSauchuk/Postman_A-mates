@@ -2711,8 +2711,8 @@
                   "    pm.response.to.have.status(200);\r",
                   "});\r",
                   "\r",
-                  "if (pm.response.to.have.status(401)){\r",
-                  " postman.setNextRequest('register')\r",
+                  "if (responseCode.code === 401) {\r",
+                  "    postman.setNextRequest(\"restore\");\r",
                   "}"
                 ],
                 "type": "text/javascript"
