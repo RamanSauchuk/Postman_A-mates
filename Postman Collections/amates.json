@@ -2707,7 +2707,7 @@
               "script": {
                 "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
                 "exec": [
-                  "if (responseCode.code === 401) {\r",
+                  "if (pm.response.status === 401) {\r",
                   "    postman.setNextRequest(\"restore\");\r",
                   "}"
                 ],
