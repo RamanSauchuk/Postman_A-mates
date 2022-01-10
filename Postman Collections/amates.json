@@ -965,7 +965,7 @@
           "response": []
         },
         {
-          "name": "get topic by id Copy",
+          "name": "get all autors for topic",
           "event": [
             {
               "listen": "test",
