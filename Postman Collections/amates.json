@@ -1810,7 +1810,7 @@
               "script": {
                 "id": "506eec9d-609b-40bd-a066-399f5b97f4fa",
                 "exec": [
-                  "if (responseCode.code === 401) {\r",
+                  "if (pm.response.to.have.status(401)) {\r",
                   "    postman.setNextRequest(\"restore\");\r",
                   "}"
                 ],
