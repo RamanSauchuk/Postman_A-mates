@@ -1191,55 +1191,6 @@
       "name": "messages",
       "item": [
         {
-          "name": "create message1",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b713f63e-1d6a-4283-8ff5-fe2a034e6de8",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "var jsonData = pm.response.json()[\"id\"];\r",
-                  "    pm.environment.set(\"itemID\", jsonData);\r",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "8f7a5bf4-4962-4a81-9b70-0d15b4267d91",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "d72a137b-46c9-4091-92f0-a8ee768c3507",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Have a nice day!\",\n    \"mimetype\": \"text/plain\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
-          },
-          "response": []
-        },
-        {
           "name": "create message2",
           "event": [
             {
