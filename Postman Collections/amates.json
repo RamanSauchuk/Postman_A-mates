@@ -285,7 +285,7 @@
           "response": []
         },
         {
-          "name": "create message Copy",
+          "name": "create message2",
           "event": [
             {
               "listen": "test",
