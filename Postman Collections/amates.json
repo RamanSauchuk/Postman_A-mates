@@ -1102,6 +1102,33 @@
             "url": "{{URL}}/v1/chats/bulk"
           },
           "response": []
+        },
+        {
+          "name": "mute topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e6daaeb7-61c4-4f95-8a6b-b6bafb7baa1c",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "3d7c34b2-4e5d-47c1-b4af-53f7ffa80a41",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/mute"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
