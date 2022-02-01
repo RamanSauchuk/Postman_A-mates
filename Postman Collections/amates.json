@@ -203,33 +203,6 @@
           "response": []
         },
         {
-          "name": "get all topics (debug)",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ff28f56b-491b-4682-bd92-f22b4e6ad0a0",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "caff2672-105d-4cc6-bc79-f494e89abb42",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/chats/getAll"
-          },
-          "response": []
-        },
-        {
           "name": "get updates for topics",
           "event": [
             {
