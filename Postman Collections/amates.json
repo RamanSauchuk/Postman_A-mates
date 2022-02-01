@@ -160,6 +160,75 @@
             "url": "{{URL}}/v1/auth/register"
           },
           "response": []
+        },
+        {
+          "name": "restore",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9a6fa3b7-1d74-40e0-8774-ca0bfa447101",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const schema = {\r",
+                  "    \"type\":\"object\", \r",
+                  "       \"properties\":{\r",
+                  "           \"tokens\":{\r",
+                  "               \"type\":\"object\",\r",
+                  "               \"required\":[\"accessToken\",\"refreshToken\"],\r",
+                  "              \"properties\":{\r",
+                  "                \"accessToken\":{\r",
+                  "                    \"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"refreshToken\":{\r",
+                  "\"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"message\":{\r",
+                  "                    \"const\":\"user already exist\"\r",
+                  "                }\r",
+                  "              }\r",
+                  "            }\r",
+                  "        }\r",
+                  "    \r",
+                  "};\r",
+                  " pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
+                  "\r",
+                  " //перезаписываем токены после Restore\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
+                  "pm.globals.set(\"refreshToken\", jsonData);\r",
+                  "\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];\r",
+                  "pm.globals.set(\"token\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "18bd70a8-697a-4c53-bc42-7173cec9f9fd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \"deviceId\":\"{{deviceId}}\",\r\n     \"uid\":\"{{uid}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/restore"
+          },
+          "response": []
         }
       ],
       "id": "8683c250-d00f-4064-b0b3-75505375d4b9"
