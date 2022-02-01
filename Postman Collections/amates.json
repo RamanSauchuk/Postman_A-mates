@@ -1327,6 +1327,55 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "get last messages",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7c7da108-cbf3-420a-bf0a-2fdffc61276f",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "a78b7d2f-7c26-48fc-a0b4-2c1896fa361a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/last?limit=20&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "last"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
