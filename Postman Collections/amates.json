@@ -1517,6 +1517,140 @@
         }
       ],
       "id": "687a9dc1-7ce8-4f0d-b2d6-56ac121182e5"
+    },
+    {
+      "name": "bad words",
+      "item": [
+        {
+          "name": "create",
+          "id": "f9ca186b-1a03-4569-a1eb-0e9e079b4b6c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"word\": \"hui\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/badwords"
+          },
+          "response": []
+        },
+        {
+          "name": "get all",
+          "id": "60283211-4fb1-4457-ae64-4d71422c7f14",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/badwords?offset=0&limit=5",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "badwords"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "id": "e2197d85-adf6-4fb2-ad99-7459d593e9b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"word\": \"hui3\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/badwords/1"
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "id": "fb10ce7e-f9fc-41f3-b0dc-826da5c62a3b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/1"
+          },
+          "response": []
+        },
+        {
+          "name": "get default words",
+          "id": "d50bf36e-2dee-462d-a5a2-bb0ef647520e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/list"
+          },
+          "response": []
+        },
+        {
+          "name": "import default words",
+          "id": "bba0f55d-8931-4e76-a7e0-fdcc67837012",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/import"
+          },
+          "response": []
+        },
+        {
+          "name": "delete all",
+          "id": "eea32717-b0e8-4129-b7fd-6ea35b4c6b60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/badwords/clear"
+          },
+          "response": []
+        }
+      ],
+      "id": "3d166e6b-0795-4818-b847-97413afb85a1"
     }
   ],
   "auth": {
