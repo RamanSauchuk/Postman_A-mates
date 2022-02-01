@@ -203,7 +203,7 @@
           "response": []
         },
         {
-          "name": "create topic Copy",
+          "name": "create topic 2",
           "event": [
             {
               "listen": "test",
