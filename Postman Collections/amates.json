@@ -822,6 +822,42 @@
             "url": "{{URL}}/v1/chats/100/join"
           },
           "response": []
+        },
+        {
+          "name": "update topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d65c63ab-5ce5-45bd-9ea3-792d9d6db01d",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "675261a6-41f0-4779-86e2-01cc8cc39c0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Postman_topic_edited\",\n    \"description\": \"editing_chat\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
