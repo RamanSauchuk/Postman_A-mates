@@ -203,53 +203,6 @@
           "response": []
         },
         {
-          "name": "get updates for topics",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "9754076e-9bb5-4422-8f81-4a9dd657b468",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "f6e47709-8527-48d8-b1e3-1100c7a0edc0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/chats/updates?limit=5&time=1632933997911",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "chats",
-                "updates"
-              ],
-              "query": [
-                {
-                  "key": "limit",
-                  "value": "5"
-                },
-                {
-                  "key": "time",
-                  "value": "1632933997911"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "join to topic",
           "event": [
             {
