@@ -1064,6 +1064,44 @@
             "url": "{{URL}}/v1/chats/100/leave"
           },
           "response": []
+        },
+        {
+          "name": "create bulk (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bda0efd4-40de-4fd2-b9cc-e16c99f4385f",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"chatID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "d0b80573-df55-4a79-a530-4270c6a38c13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Нагружаем сервер\",\n    \"description\": \"jmetter23\",\n    \"limit\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/bulk"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
