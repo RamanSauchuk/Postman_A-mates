@@ -191,7 +191,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\":\"Hello\",\n    \"description\": \"test\"\n}",
+              "raw": "{\n    \"title\":\"Hunting\",\n    \"description\": \"test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
