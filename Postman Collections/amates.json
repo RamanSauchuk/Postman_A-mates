@@ -236,7 +236,7 @@
       "name": "messages",
       "item": [
         {
-          "name": "create message",
+          "name": "create message1",
           "event": [
             {
               "listen": "test",
