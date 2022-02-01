@@ -2974,6 +2974,156 @@
         }
       ],
       "id": "3d166e6b-0795-4818-b847-97413afb85a1"
+    },
+    {
+      "name": "reports",
+      "item": [
+        {
+          "name": "report chat",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "19d7cc3a-964a-40ee-98c2-55f4d2f6d076",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "b13144e3-24e7-4f85-a117-ab1318f25896",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"chatId\": {{chatID}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/chats"
+          },
+          "response": []
+        },
+        {
+          "name": "report message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c3a7f478-0adf-4b21-b862-fc6e0cc09350",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "06ec56e8-6229-4473-80d4-3234e28aadc9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"chatId\": {{chatID}},\n    \"messageId\": {{itemId}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/messages"
+          },
+          "response": []
+        },
+        {
+          "name": "report reply",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d3ed890c-f7ac-44a1-a5e3-82c1b9513d72",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "6adcbc72-99a1-4f84-8984-cb4d9b4bf2ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"replyId\": {{replyID}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/replies"
+          },
+          "response": []
+        },
+        {
+          "name": "report user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9a6ec8de-3442-4e8f-818c-8969115361fb",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "9c5a094b-730c-437f-869f-df57a322b844",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": {{userID}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/reports/users"
+          },
+          "response": []
+        }
+      ],
+      "id": "23716680-8388-45bc-9747-9d5bd64474a4"
     }
   ],
   "auth": {
