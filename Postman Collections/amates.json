@@ -1668,6 +1668,28 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
           },
           "response": []
+        },
+        {
+          "name": "get message by id",
+          "id": "b9ad8ef3-3ee2-4ac0-bcda-b146d76a274e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
