@@ -230,33 +230,6 @@
           "response": []
         },
         {
-          "name": "leave from topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "7491f563-889f-43f4-a397-a9ca3d0a6bd3",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "9b28ae74-4783-4570-a608-c8939f4f29ba",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": "{{URL}}/v1/chats/100/leave"
-          },
-          "response": []
-        },
-        {
           "name": "create bulk (test)",
           "event": [
             {
