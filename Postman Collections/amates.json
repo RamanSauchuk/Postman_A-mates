@@ -1037,6 +1037,33 @@
             "url": "{{URL}}/v1/chats/100/join"
           },
           "response": []
+        },
+        {
+          "name": "leave from topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2ff477a4-344e-46ac-ad8f-eda59ce41a6f",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "51fe8265-7693-410b-b0e7-ae9e67cae184",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/100/leave"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
