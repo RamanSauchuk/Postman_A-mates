@@ -1260,6 +1260,28 @@
             "url": "{{URL}}/v1/chats/1/messages/"
           },
           "response": []
+        },
+        {
+          "name": "create message with text / type = image-text",
+          "id": "4b4ef65c-08de-4bae-9bda-05548d0e1147",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": 1,\r\n    \"previewId\": 2,\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
