@@ -1286,6 +1286,140 @@
       "name": "policies",
       "item": [
         {
+          "name": "bad words",
+          "item": [
+            {
+              "name": "create",
+              "id": "d0d3e44b-1a18-47e5-8f2c-82964a283c7e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"word\": \"пизда\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{URL}}/v1/badwords"
+              },
+              "response": []
+            },
+            {
+              "name": "get all",
+              "id": "b94a7340-2986-46d4-bfca-309f56a456aa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/badwords?offset=0&limit=20",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "badwords"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "id": "0ae195a5-fa68-4ce8-9cc2-1e820725f401",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"word\": \"hui3\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{URL}}/v1/badwords/1"
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "id": "2ec8110e-eaec-423e-b493-a4bc4fe0ad72",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{URL}}/v1/badwords/1"
+              },
+              "response": []
+            },
+            {
+              "name": "get default words",
+              "id": "c81cb001-a611-44de-965d-7a344fb1b34d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/v1/badwords/list"
+              },
+              "response": []
+            },
+            {
+              "name": "import default words",
+              "id": "14a37846-ed66-462f-9d9f-b0c91d8db63f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{URL}}/v1/badwords/import"
+              },
+              "response": []
+            },
+            {
+              "name": "delete all",
+              "id": "3f742176-abd9-400f-9c56-62c85dd8196b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{URL}}/v1/badwords/clear"
+              },
+              "response": []
+            }
+          ],
+          "id": "c2432e92-54d5-431d-be73-0078110707bf"
+        },
+        {
           "name": "create or update",
           "id": "3a6cb364-9ff9-40b2-9250-f53ca76cd13a",
           "protocolProfileBehavior": {
