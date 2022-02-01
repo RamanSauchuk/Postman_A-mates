@@ -347,6 +347,418 @@
       "id": "8683c250-d00f-4064-b0b3-75505375d4b9"
     },
     {
+      "name": "user",
+      "item": [
+        {
+          "name": "get current user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c3f50c72-9019-4240-bcc8-0bd8c3c1ea68",
+                "exec": [
+                  "pm.test(\"Статус код 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "   var jsonData = pm.response.json()[\"uid\"];\r",
+                  "   pm.globals.set(\"uid\", jsonData);\r",
+                  "\r",
+                  "   var jsonData = pm.response.json().id;\r",
+                  "   pm.environment.set(\"userID\", jsonData);\r",
+                  "   \r",
+                  "\r",
+                  "   const schema = {\r",
+                  "       \"type\":\"object\",\r",
+                  "       \"properties\":{\r",
+                  "           \"id\":{\"type\":\"integer\"},     \r",
+                  "       \r",
+                  "       \"updatedAt\":{\r",
+                  "            \"type\":\"integer\"},\r",
+                  "        \"createdAt\":{\r",
+                  "            \"type\":\"integer\"},\r",
+                  "        \"uid\":{\r",
+                  "            \"type\":\"string\"},\r",
+                  "         \"deviceId\":{\r",
+                  "             \"type\":\"string\"},\r",
+                  "        //\"displayName\":{\r",
+                  "          //   \"type\":\"string\",\"null\"},\r",
+                  "        },\r",
+                  "        \"required\":[\"id\",\"updatedAt\",\"createdAt\", \"uid\",\"deviceId\",\"reported\"],\r",
+                  "              \"settings\":{\r",
+                  "        \"type\":\"object\",\r",
+                  "        \"properties\":{\r",
+                  "            \"likesMuted\":{\r",
+                  "               \"type\":\"boolean\"},\r",
+                  "          \r",
+                  "    }\r",
+                  "    }\r",
+                  "       \r",
+                  "   }\r",
+                  "        pm.test(\"Валидация JSON схемы\",()=>{\r",
+                  "            pm.response.to.have.jsonSchema(schema)\r",
+                  "        })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "dbf8c94d-23da-455d-8d29-a51e3f29925d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "update current user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2d1eaeb6-c652-45e8-9992-02f575a0c699",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "  "
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "062fa1bb-627d-45a3-a55b-8539cc9068a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"uid\": \"uid3\",\n    \"firstName\": \"firstyName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get user by id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "717859c7-41a9-428b-a7bb-6fa9f930cc21",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "4d838352-fd44-455a-96bb-bfcbbad23c6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "af2e9575-5e95-4b18-ace8-6ecca6302828",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "    const schema = {\r",
+                  "        \"type\":\"object\",\r",
+                  "        \"properties\":{\r",
+                  "            \"users\":{\r",
+                  "       \"type\":\"array\",\r",
+                  "       \"minItems\":1,\r",
+                  "       \"maxItems\":999999,\r",
+                  "        }\r",
+                  "        }\r",
+                  "           }\r",
+                  "       \r",
+                  "       pm.test(\"Валидация JSON схемы\",()=>{\r",
+                  "            pm.response.to.have.jsonSchema(schema)\r",
+                  "        })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e9e0b2e1-8b4a-4331-8026-fde8f3406105",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/auth/users?offset=0&limit=20",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get users with ids",
+          "id": "4ec0d29d-ba50-4df2-8617-74117964a529",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ids\": [1000, 200000, 300000, 400000]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users"
+          },
+          "response": []
+        },
+        {
+          "name": "delete user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a47c2078-3073-48d1-a8b9-40d4f13ff8f1",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "2c53d8d1-b9f5-4697-9575-524bc96289b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get user settings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4953fb8d-f11d-4840-a5f9-4733f57569f1",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "   var schema={\r",
+                  "                  \"type\":\"object\",\r",
+                  "                    \"properties\":{                    \r",
+                  "               \"likesMuted\":{\r",
+                  "              \"const\":false\r",
+                  "               },\r",
+                  "              \"repliesMuted\":{\r",
+                  "              \"const\":false\r",
+                  "               },\r",
+                  "              \"commentsMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },\r",
+                  "               \"notCommentsMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },\r",
+                  "               \"adminsTopicMuted\":{\r",
+                  "               \"const\":false\r",
+                  "               },               \r",
+                  "                    },  \r",
+                  "                                  \r",
+                  "\r",
+                  "   }\r",
+                  "     pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "3b0e0837-162f-4a4d-8ecb-af57ef76984a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/settings"
+          },
+          "response": []
+        },
+        {
+          "name": "update user settings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "011131a0-dbda-409a-9c67-515605c4d4c2",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "6125d571-5bdb-4fd4-a45f-498319c1e538",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"repliesMuted\": true,\r\n    \"likesMuted\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/settings"
+          },
+          "response": []
+        },
+        {
+          "name": "ban users",
+          "id": "d2ebbf38-2e82-4739-938c-c97309a1cf11",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users/ban"
+          },
+          "response": []
+        },
+        {
+          "name": "unban users",
+          "id": "e2ccd9ab-ecf1-4bc5-b55c-29dc4a7293e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/users/unban"
+          },
+          "response": []
+        },
+        {
+          "name": "update uid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "67a258e2-760d-4f87-a50f-369fe3d5e689",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "4942fd33-3c3e-430f-8e27-792a5416f9c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"uid\": \"user_user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
+          },
+          "response": []
+        }
+      ],
+      "id": "606b5d0c-09fa-404a-8829-f52706d80201"
+    },
+    {
       "name": "Topics",
       "item": [
         {
@@ -1833,418 +2245,6 @@
         }
       ],
       "id": "3d166e6b-0795-4818-b847-97413afb85a1"
-    },
-    {
-      "name": "user",
-      "item": [
-        {
-          "name": "get current user",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c3f50c72-9019-4240-bcc8-0bd8c3c1ea68",
-                "exec": [
-                  "pm.test(\"Статус код 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "   var jsonData = pm.response.json()[\"uid\"];\r",
-                  "   pm.globals.set(\"uid\", jsonData);\r",
-                  "\r",
-                  "   var jsonData = pm.response.json().id;\r",
-                  "   pm.environment.set(\"userID\", jsonData);\r",
-                  "   \r",
-                  "\r",
-                  "   const schema = {\r",
-                  "       \"type\":\"object\",\r",
-                  "       \"properties\":{\r",
-                  "           \"id\":{\"type\":\"integer\"},     \r",
-                  "       \r",
-                  "       \"updatedAt\":{\r",
-                  "            \"type\":\"integer\"},\r",
-                  "        \"createdAt\":{\r",
-                  "            \"type\":\"integer\"},\r",
-                  "        \"uid\":{\r",
-                  "            \"type\":\"string\"},\r",
-                  "         \"deviceId\":{\r",
-                  "             \"type\":\"string\"},\r",
-                  "        //\"displayName\":{\r",
-                  "          //   \"type\":\"string\",\"null\"},\r",
-                  "        },\r",
-                  "        \"required\":[\"id\",\"updatedAt\",\"createdAt\", \"uid\",\"deviceId\",\"reported\"],\r",
-                  "              \"settings\":{\r",
-                  "        \"type\":\"object\",\r",
-                  "        \"properties\":{\r",
-                  "            \"likesMuted\":{\r",
-                  "               \"type\":\"boolean\"},\r",
-                  "          \r",
-                  "    }\r",
-                  "    }\r",
-                  "       \r",
-                  "   }\r",
-                  "        pm.test(\"Валидация JSON схемы\",()=>{\r",
-                  "            pm.response.to.have.jsonSchema(schema)\r",
-                  "        })"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "dbf8c94d-23da-455d-8d29-a51e3f29925d",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/auth/user/{{userId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "update current user",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "2d1eaeb6-c652-45e8-9992-02f575a0c699",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "  "
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "062fa1bb-627d-45a3-a55b-8539cc9068a8",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"uid\": \"uid3\",\n    \"firstName\": \"firstyName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/user/{{userId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "get user by id",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "717859c7-41a9-428b-a7bb-6fa9f930cc21",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "4d838352-fd44-455a-96bb-bfcbbad23c6a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/auth/user/{{userID}}"
-          },
-          "response": []
-        },
-        {
-          "name": "get all users",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "af2e9575-5e95-4b18-ace8-6ecca6302828",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "\r",
-                  "    const schema = {\r",
-                  "        \"type\":\"object\",\r",
-                  "        \"properties\":{\r",
-                  "            \"users\":{\r",
-                  "       \"type\":\"array\",\r",
-                  "       \"minItems\":1,\r",
-                  "       \"maxItems\":999999,\r",
-                  "        }\r",
-                  "        }\r",
-                  "           }\r",
-                  "       \r",
-                  "       pm.test(\"Валидация JSON схемы\",()=>{\r",
-                  "            pm.response.to.have.jsonSchema(schema)\r",
-                  "        })"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "e9e0b2e1-8b4a-4331-8026-fde8f3406105",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/auth/users?offset=0&limit=20",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "auth",
-                "users"
-              ],
-              "query": [
-                {
-                  "key": "offset",
-                  "value": "0"
-                },
-                {
-                  "key": "limit",
-                  "value": "20"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get users with ids",
-          "id": "4ec0d29d-ba50-4df2-8617-74117964a529",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"ids\": [1000, 200000, 300000, 400000]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/users"
-          },
-          "response": []
-        },
-        {
-          "name": "delete user",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "a47c2078-3073-48d1-a8b9-40d4f13ff8f1",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "2c53d8d1-b9f5-4697-9575-524bc96289b2",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{URL}}/v1/auth/user/{{userId}}"
-          },
-          "response": []
-        },
-        {
-          "name": "get user settings",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4953fb8d-f11d-4840-a5f9-4733f57569f1",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "\r",
-                  "   var schema={\r",
-                  "                  \"type\":\"object\",\r",
-                  "                    \"properties\":{                    \r",
-                  "               \"likesMuted\":{\r",
-                  "              \"const\":false\r",
-                  "               },\r",
-                  "              \"repliesMuted\":{\r",
-                  "              \"const\":false\r",
-                  "               },\r",
-                  "              \"commentsMuted\":{\r",
-                  "               \"const\":false\r",
-                  "               },\r",
-                  "               \"notCommentsMuted\":{\r",
-                  "               \"const\":false\r",
-                  "               },\r",
-                  "               \"adminsTopicMuted\":{\r",
-                  "               \"const\":false\r",
-                  "               },               \r",
-                  "                    },  \r",
-                  "                                  \r",
-                  "\r",
-                  "   }\r",
-                  "     pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "3b0e0837-162f-4a4d-8ecb-af57ef76984a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/auth/user/settings"
-          },
-          "response": []
-        },
-        {
-          "name": "update user settings",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "011131a0-dbda-409a-9c67-515605c4d4c2",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "6125d571-5bdb-4fd4-a45f-498319c1e538",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"repliesMuted\": true,\r\n    \"likesMuted\": false\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/user/settings"
-          },
-          "response": []
-        },
-        {
-          "name": "ban users",
-          "id": "d2ebbf38-2e82-4739-938c-c97309a1cf11",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/users/ban"
-          },
-          "response": []
-        },
-        {
-          "name": "unban users",
-          "id": "e2ccd9ab-ecf1-4bc5-b55c-29dc4a7293e3",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"ids\": [30, 31, 33]\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/users/unban"
-          },
-          "response": []
-        },
-        {
-          "name": "update uid",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "67a258e2-760d-4f87-a50f-369fe3d5e689",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "4942fd33-3c3e-430f-8e27-792a5416f9c4",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"uid\": \"user_user\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/user/{{userID}}"
-          },
-          "response": []
-        }
-      ],
-      "id": "606b5d0c-09fa-404a-8829-f52706d80201"
     }
   ],
   "auth": {
