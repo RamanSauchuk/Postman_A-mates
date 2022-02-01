@@ -230,33 +230,6 @@
           "response": []
         },
         {
-          "name": "unmute topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c29c8198-1c96-4faf-8392-d9261867f5d5",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "cfbaed9d-c9fc-499b-80ef-da542ae63c5c",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}/unmute"
-          },
-          "response": []
-        },
-        {
           "name": "delete topic",
           "event": [
             {
