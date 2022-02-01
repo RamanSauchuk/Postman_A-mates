@@ -230,44 +230,6 @@
           "response": []
         },
         {
-          "name": "create bulk (test)",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "098791f4-071e-4bfa-9185-ca783515aa5e",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "   var jsonData = pm.response.json()[\"id\"];\r",
-                  "    pm.environment.set(\"chatID\", jsonData);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "db5421b4-5dae-4059-89f7-0ea60755285d",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Нагружаем сервер\",\n    \"description\": \"jmetter23\",\n    \"limit\": 10\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/chats/bulk"
-          },
-          "response": []
-        },
-        {
           "name": "mute topic",
           "event": [
             {
