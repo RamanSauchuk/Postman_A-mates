@@ -285,55 +285,6 @@
           "response": []
         },
         {
-          "name": "get last messages",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "09c09a6d-0035-4835-b883-6a01e8dbd543",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "8583c03b-45eb-45df-a268-4d3133858a9e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/last?limit=20&authors=true",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "chats",
-                "{{chatID}}",
-                "messages",
-                "last"
-              ],
-              "query": [
-                {
-                  "key": "limit",
-                  "value": "20"
-                },
-                {
-                  "key": "authors",
-                  "value": "true"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "get messages after",
           "event": [
             {
