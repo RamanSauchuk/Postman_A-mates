@@ -1531,6 +1531,59 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "get messages window",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ef802d0b-1da9-4a49-b110-0b77464d00e6",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "daa98156-8856-4950-a7dd-4f9d5fa1756a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=5&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
