@@ -285,59 +285,6 @@
           "response": []
         },
         {
-          "name": "get messages window",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "9cacd0e4-d9a3-4fb8-978e-88cd3be95c81",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "62fc0d47-4202-4efe-880c-9f6ac167c4b9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=5&authors=true",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "chats",
-                "{{chatID}}",
-                "messages",
-                "window"
-              ],
-              "query": [
-                {
-                  "key": "offset",
-                  "value": "0"
-                },
-                {
-                  "key": "limit",
-                  "value": "5"
-                },
-                {
-                  "key": "authors",
-                  "value": "true"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "update message",
           "event": [
             {
