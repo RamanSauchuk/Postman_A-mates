@@ -1156,6 +1156,33 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/unmute"
           },
           "response": []
+        },
+        {
+          "name": "delete topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c561f5b8-b98e-4b73-b3bf-045fb2e45788",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "f18a17b2-dd64-49cc-825b-21ac527cba62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
@@ -1258,33 +1285,6 @@
               }
             },
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
-          },
-          "response": []
-        },
-        {
-          "name": "delete topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c561f5b8-b98e-4b73-b3bf-045fb2e45788",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "f18a17b2-dd64-49cc-825b-21ac527cba62",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}"
           },
           "response": []
         }
