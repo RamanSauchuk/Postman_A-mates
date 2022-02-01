@@ -861,7 +861,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"token\": {{pushToken}},\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"firebase\"\n}",
+              "raw": "{\n    \"token\": \"{{pushToken}}\",\n    \"deviceId\": \"{{deviceId}}\",\n    \"platform\": \"firebase\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
