@@ -1376,6 +1376,59 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "get messages after",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0ae4527b-0ec7-4f07-b563-2c35098c77fc",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "abd030b3-60e9-4daa-9b9b-8ecda4d80b49",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/after?id=28&limit=10&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "after"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "28"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
