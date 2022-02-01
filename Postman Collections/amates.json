@@ -285,42 +285,6 @@
           "response": []
         },
         {
-          "name": "update message",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4d8d3965-5d31-4d39-8812-deaaaa73bee9",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "a719cc55-45d6-4412-bde1-6d04574d67ff",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"content\": \"Postman_message_edited\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
-          },
-          "response": []
-        },
-        {
           "name": "bulk create messages (test)",
           "event": [
             {
