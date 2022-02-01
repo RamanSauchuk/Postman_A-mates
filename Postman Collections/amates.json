@@ -1655,6 +1655,19 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/bulk"
           },
           "response": []
+        },
+        {
+          "name": "delete message",
+          "id": "2e02b830-8a00-41e1-8da1-6f166ccb02d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
