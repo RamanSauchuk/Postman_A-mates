@@ -1129,6 +1129,33 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/mute"
           },
           "response": []
+        },
+        {
+          "name": "unmute topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5d8edfa6-46cd-4b2b-a2a8-35a84f02ef21",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e4ddcc3a-fc96-4b7f-86e7-16718beca9ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}/unmute"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
