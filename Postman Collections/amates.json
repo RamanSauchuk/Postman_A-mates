@@ -283,6 +283,55 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
           },
           "response": []
+        },
+        {
+          "name": "create message Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ef72397b-25d3-4c47-84ce-c5a3cb714467",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"itemID\", jsonData);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "49cf09f1-53b4-4746-a33c-628e2815f34c",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "b93f8965-623c-4593-a823-dbf7764f58f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"сообщение\",\n    \"mimetype\": \"text/plain\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
