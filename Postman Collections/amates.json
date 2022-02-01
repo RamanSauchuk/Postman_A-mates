@@ -797,33 +797,6 @@
           "response": []
         },
         {
-          "name": "join to topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c3aa892b-0003-4187-a85e-f2abe96785fc",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "a5952089-e98a-4f2f-9b23-8847f7a2fbab",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": "{{URL}}/v1/chats/100/join"
-          },
-          "response": []
-        },
-        {
           "name": "get topic by id",
           "event": [
             {
@@ -1035,6 +1008,33 @@
                 }
               ]
             }
+          },
+          "response": []
+        },
+        {
+          "name": "join to topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c3aa892b-0003-4187-a85e-f2abe96785fc",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "a5952089-e98a-4f2f-9b23-8847f7a2fbab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{URL}}/v1/chats/100/join"
           },
           "response": []
         }
