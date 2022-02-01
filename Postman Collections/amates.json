@@ -285,55 +285,6 @@
           "response": []
         },
         {
-          "name": "get messages before",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "02e34174-58ab-43a4-831f-3c7f2c92922c",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "2500cad9-e8a0-4757-9a58-51e3ec442331",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/before?id=28&limit=50",
-              "host": [
-                "{{URL}}"
-              ],
-              "path": [
-                "v1",
-                "chats",
-                "{{chatID}}",
-                "messages",
-                "before"
-              ],
-              "query": [
-                {
-                  "key": "id",
-                  "value": "28"
-                },
-                {
-                  "key": "limit",
-                  "value": "50"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "get messages updates",
           "event": [
             {
