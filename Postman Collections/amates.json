@@ -1189,7 +1189,57 @@
     },
     {
       "name": "messages",
-      "item": [],
+      "item": [
+        {
+          "name": "create message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e8a88b5a-9a7b-4feb-94bc-f916e838d818",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"itemID\", jsonData);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "01d3d086-7b73-4758-bc3c-e5c838a2317b",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "b977d845-33e3-4acb-ad98-939bb7b5028e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"сообщение\",\n    \"mimetype\": \"text/plain\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
+          },
+          "response": []
+        }
+      ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
     },
     {
