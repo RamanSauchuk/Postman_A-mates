@@ -203,42 +203,6 @@
           "response": []
         },
         {
-          "name": "update topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "0e78474f-f509-477c-a06a-9cd9aaf7c16e",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "8e5e673f-24f1-43da-8f7f-3b069e42e3f8",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Postman_topic_edited\",\n    \"description\": \"editing_chat\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/chats/{{chatID}}"
-          },
-          "response": []
-        },
-        {
           "name": "get topic by id",
           "event": [
             {
