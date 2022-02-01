@@ -857,6 +857,41 @@
             "url": "{{URL}}/v1/chats/100/join"
           },
           "response": []
+        },
+        {
+          "name": "create topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a8993b87-e70d-48eb-aa64-86e646e62e3e",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"chatID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "cbb4d1fa-7514-4f30-8225-418a51c44778",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\":\"Складываем сюда сообщеньки для тестов переЛяма\",\n    \"description\": \"test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
