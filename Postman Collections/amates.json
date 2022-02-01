@@ -285,19 +285,6 @@
           "response": []
         },
         {
-          "name": "delete message",
-          "id": "12602bc1-6439-4447-80d7-fb99eb61d685",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
-          },
-          "response": []
-        },
-        {
           "name": "get message by id",
           "id": "65791244-d28e-4f02-a0af-67cfe9b71229",
           "protocolProfileBehavior": {
