@@ -1238,6 +1238,28 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
           },
           "response": []
+        },
+        {
+          "name": "create message / type = image",
+          "id": "b0a4860d-d180-4948-b31a-c4ad0fbcfb51",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"image\",\n    \"imageId\": 28,\n    \"previewId\": 29,\n    \"mimetype\": \"image/jpeg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/1/messages/"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
