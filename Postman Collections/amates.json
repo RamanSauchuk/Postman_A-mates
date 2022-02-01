@@ -273,7 +273,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"сообщение\",\n    \"mimetype\": \"text/plain\"\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Have a nice day!\",\n    \"mimetype\": \"text/plain\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
