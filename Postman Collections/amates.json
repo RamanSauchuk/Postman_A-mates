@@ -203,33 +203,6 @@
           "response": []
         },
         {
-          "name": "get topic by id",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b4039569-5d18-4bfa-b38b-884431f543e4",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "e64736ef-85ac-4b6d-a8f1-a7e31806cdf7",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}"
-          },
-          "response": []
-        },
-        {
           "name": "get all autors for topic",
           "event": [
             {
