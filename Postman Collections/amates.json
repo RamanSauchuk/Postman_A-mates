@@ -851,6 +851,33 @@
           "response": []
         },
         {
+          "name": "get all autors for topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4e7fc689-3844-4946-a487-b83167342aeb",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "ca4a1460-80b2-4a26-a71c-136169f6650a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/chats/{{chatID}}"
+          },
+          "response": []
+        },
+        {
           "name": "update topic",
           "event": [
             {
@@ -882,33 +909,6 @@
                 }
               }
             },
-            "url": "{{URL}}/v1/chats/{{chatID}}"
-          },
-          "response": []
-        },
-        {
-          "name": "get all autors for topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4e7fc689-3844-4946-a487-b83167342aeb",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "ca4a1460-80b2-4a26-a71c-136169f6650a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
             "url": "{{URL}}/v1/chats/{{chatID}}"
           },
           "response": []
