@@ -285,28 +285,6 @@
           "response": []
         },
         {
-          "name": "create message with text / type = image-text",
-          "id": "829a9f89-00f3-4a01-9b48-cf42be38a5b3",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": 1,\r\n    \"previewId\": 2,\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/chats/1/messages/"
-          },
-          "response": []
-        },
-        {
           "name": "get first messages",
           "event": [
             {
