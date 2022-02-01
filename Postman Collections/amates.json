@@ -1620,6 +1620,41 @@
             "url": "{{URL}}/v1/chats/{{chatID}}/messages/{{itemID}}"
           },
           "response": []
+        },
+        {
+          "name": "bulk create messages (test)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "16ee2be4-4765-4fa5-ac01-030276ad96a2",
+                "exec": [
+                  "var jsonData = pm.response.json()[\"id\"];\r",
+                  "    pm.environment.set(\"itemID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "96053b26-4d6d-4aa7-a49a-cfae6075e727",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"БАЛК 20 ШТ\",\n    \"limit\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/bulk"
+          },
+          "response": []
         }
       ],
       "id": "20b674f2-4a92-4bbc-8f2b-13f82fba6f14"
