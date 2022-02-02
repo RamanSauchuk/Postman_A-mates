@@ -1621,6 +1621,59 @@
           "response": []
         },
         {
+          "name": "get messages window Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "53e2130d-97b2-4aea-aa09-a8df78f2772e",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "619b51aa-b121-45c7-8c80-c44201ab7198",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=5&authors=true",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "v1",
+                "chats",
+                "{{chatID}}",
+                "messages",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "authors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "update message",
           "event": [
             {
@@ -1811,6 +1864,17 @@
                   "   });\r",
                   "var jsonData = pm.response.json()[\"id\"];\r",
                   "    pm.environment.set(\"replyID\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4fca172a-c513-4786-9453-9e6c596d7c13",
+                "exec": [
+                  "pm.globals.set('randomChatID',  _.random (6,242))\r",
+                  "pm.globals.set('randomItemId',  _.random (6,1124))"
                 ],
                 "type": "text/javascript"
               }
