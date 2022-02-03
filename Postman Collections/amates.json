@@ -886,33 +886,6 @@
           "response": []
         },
         {
-          "name": "get all topics (debug)",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "39589a7b-ba7a-40bf-8933-3eb71142727f",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "fd0e55e5-8df7-46f5-b899-c02f011b519e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/chats/getAll"
-          },
-          "response": []
-        },
-        {
           "name": "get all topics (debug) Copy",
           "event": [
             {
