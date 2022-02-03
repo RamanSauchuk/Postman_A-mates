@@ -859,33 +859,6 @@
           "response": []
         },
         {
-          "name": "get topic by id Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "a4d0a84c-f91e-449a-bb65-5628fb515901",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "21946819-0424-46c7-ba7a-887a177a8a44",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}"
-          },
-          "response": []
-        },
-        {
           "name": "get all autors for topic",
           "event": [
             {
