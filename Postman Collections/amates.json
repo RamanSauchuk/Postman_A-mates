@@ -231,6 +231,75 @@
           "response": []
         },
         {
+          "name": "restore Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e6f94d27-0441-45e0-9262-1ac087bbb875",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const schema = {\r",
+                  "    \"type\":\"object\", \r",
+                  "       \"properties\":{\r",
+                  "           \"tokens\":{\r",
+                  "               \"type\":\"object\",\r",
+                  "               \"required\":[\"accessToken\",\"refreshToken\"],\r",
+                  "              \"properties\":{\r",
+                  "                \"accessToken\":{\r",
+                  "                    \"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"refreshToken\":{\r",
+                  "\"type\":\"string\"\r",
+                  "                },\r",
+                  "                \"message\":{\r",
+                  "                    \"const\":\"user already exist\"\r",
+                  "                }\r",
+                  "              }\r",
+                  "            }\r",
+                  "        }\r",
+                  "    \r",
+                  "};\r",
+                  " pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
+                  "\r",
+                  " //перезаписываем токены после Restore\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
+                  "pm.globals.set(\"refreshToken\", jsonData);\r",
+                  "\r",
+                  "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];\r",
+                  "pm.globals.set(\"token\", jsonData);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "b44f74bb-34fd-4d4d-b637-b76b687389e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \"deviceId\":\"{{deviceId}}\",\r\n     \"uid\":\"{{uid}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/auth/restore"
+          },
+          "response": []
+        },
+        {
           "name": "restore(checking \"user not found\" )",
           "event": [
             {
@@ -848,33 +917,6 @@
             }
           ],
           "id": "dd97d277-6936-4d68-9b44-0d5091ac33fa",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}"
-          },
-          "response": []
-        },
-        {
-          "name": "get topic by id Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "a4d0a84c-f91e-449a-bb65-5628fb515901",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "21946819-0424-46c7-ba7a-887a177a8a44",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
