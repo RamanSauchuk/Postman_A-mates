@@ -1218,6 +1218,33 @@
             "url": "{{URL}}/v1/chats/{{chatID}}"
           },
           "response": []
+        },
+        {
+          "name": "get all topics (debug) Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bd5a1a4b-8b45-4f7f-bfc2-5ef2f742ec20",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "d81b06ad-f45c-4c4f-b6bc-41d384a51cf1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/chats/getAll"
+          },
+          "response": []
         }
       ],
       "id": "9f15d8b4-219d-445a-ae57-3b6732011e06"
