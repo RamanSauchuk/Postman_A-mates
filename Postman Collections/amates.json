@@ -527,39 +527,6 @@
           "response": []
         },
         {
-          "name": "get user by id Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b2f1c709-cb62-4376-988e-c85a8389b84c",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "\r",
-                  "   pm.test(\"Корректность UID\", function () {\r",
-                  "    var jsonData = pm.response.json();\r",
-                  "    let UID=pm.globals.get(\"uid\")\r",
-                  "    pm.expect(jsonData.uid).to.eql(UID);\r",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "7abb7c28-2b1a-4b8d-b026-7b6a30f142cc",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{URL}}/v1/auth/user/{{userID}}"
-          },
-          "response": []
-        },
-        {
           "name": "get all users",
           "event": [
             {
@@ -683,6 +650,39 @@
             "method": "DELETE",
             "header": [],
             "url": "{{URL}}/v1/auth/user/{{userId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "get user by id Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b2f1c709-cb62-4376-988e-c85a8389b84c",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "   pm.test(\"Корректность UID\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    let UID=pm.globals.get(\"uid\")\r",
+                  "    pm.expect(jsonData.uid).to.eql(UID);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "7abb7c28-2b1a-4b8d-b026-7b6a30f142cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{URL}}/v1/auth/user/{{userID}}"
           },
           "response": []
         },
