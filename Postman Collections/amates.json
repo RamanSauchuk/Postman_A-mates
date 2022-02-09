@@ -654,7 +654,7 @@
           "response": []
         },
         {
-          "name": "get user by id Copy",
+          "name": "get user by id after delete",
           "event": [
             {
               "listen": "test",
