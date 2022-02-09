@@ -590,6 +590,20 @@
         },
         {
           "name": "get users with ids",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5500eceb-9b60-4923-907b-4f8d76f41920",
+                "exec": [
+                  "let usersArray=[];\r",
+                  "usersArray.push(mess)\r",
+                  "console.log(usersArray);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "4ec0d29d-ba50-4df2-8617-74117964a529",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
