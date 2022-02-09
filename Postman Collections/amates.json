@@ -1290,7 +1290,7 @@
           "response": []
         },
         {
-          "name": "unmute topic Copy",
+          "name": "Reunmute topic Copy",
           "event": [
             {
               "listen": "test",
