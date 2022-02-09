@@ -868,7 +868,14 @@
                 "id": "a8993b87-e70d-48eb-aa64-86e646e62e3e",
                 "exec": [
                   "var jsonData = pm.response.json()[\"id\"];\r",
-                  "    pm.environment.set(\"chatID\", jsonData);"
+                  "    pm.environment.set(\"chatID\", jsonData);\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
