@@ -599,6 +599,7 @@
                   "let usersArray=[];\r",
                   "let mess1=pm.globals.get(\"mess\")\r",
                   "usersArray.push(mess1)\r",
+                  "pm.globals.set(\"usersArray\",usersArray)\r",
                   "console.log(usersArray);"
                 ],
                 "type": "text/javascript"
