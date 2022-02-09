@@ -396,7 +396,7 @@
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "// Проверим что на сервере хранится корректный DeviceID\r",
-                  "pm.test(\"Device ID is correct\", function () {\r",
+                  "pm.test(\"Корректность DeviceId\", function () {\r",
                   "    var jsonData = pm.response.json();\r",
                   "    let devID=pm.environment.get(\"deviceId\")\r",
                   "    pm.expect(jsonData.deviceId).to.eql(devID);\r",
