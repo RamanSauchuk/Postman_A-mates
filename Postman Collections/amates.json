@@ -599,7 +599,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ids\": {{mess}}\n}",
+              "raw": "{\n    \"ids\": \"{{mess}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
