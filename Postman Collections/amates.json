@@ -168,7 +168,6 @@
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
                   "});\r",
-                  "\r",
                   "const schema = {\r",
                   "    \"type\":\"object\", \r",
                   "       \"properties\":{\r",
@@ -190,14 +189,14 @@
                   "        }\r",
                   "    \r",
                   "};\r",
-                  " pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
+                  "    pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
                   "\r",
                   " //перезаписываем токены после Restore\r",
                   "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
-                  "pm.globals.set(\"refreshToken\", jsonData);\r",
+                  "    pm.globals.set(\"refreshToken\", jsonData);\r",
                   "\r",
                   "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];\r",
-                  "pm.globals.set(\"token\", jsonData);"
+                  "    pm.globals.set(\"token\", jsonData);"
                 ],
                 "type": "text/javascript"
               }
