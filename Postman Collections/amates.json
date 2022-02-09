@@ -17,7 +17,7 @@
                 "id": "5d9c7e77-5874-4747-b914-d86243c356e2",
                 "exec": [
                   "// Проверка 200 статуса",
-                  "pm.test(\"Status code is 200\", function () {",
+                  "pm.test(\"Статус код 200\", function () {",
                   "pm.response.to.have.status(200);",
                   "//заносим в глобальную переменную токен",
                   "var jsonData = pm.response.json()[\"tokens\"][\"refreshToken\"];",
