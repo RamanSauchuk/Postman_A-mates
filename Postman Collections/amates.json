@@ -251,7 +251,7 @@
                   "\"type\":\"string\"\r",
                   "                },\r",
                   "                \"message\":{\r",
-                  "                    \"const\":\"user already exist\"\r",
+                  "                    \"const\":\"user alreadвy exist\"\r",
                   "                }\r",
                   "              }\r",
                   "            }\r",
