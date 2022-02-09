@@ -497,7 +497,13 @@
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
-                  "   });"
+                  "   });\r",
+                  "\r",
+                  "   pm.test(\"Корректность UID\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    let UID=pm.globals.get(\"uid\")\r",
+                  "    pm.expect(jsonData.uid).to.eql(UID);\r",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
