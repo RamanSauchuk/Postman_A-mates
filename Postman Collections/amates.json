@@ -31,7 +31,7 @@
                   "   pm.globals.set(\"uid\", jsonData);",
                   "",
                   "pm.test(\"Время ответа сервера меньше 200мс\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "    pm.expect(pm.response.responseTime).to.be.below(300);",
                   "});",
                   "  const schema = {",
                   "       \"type\":\"object\",",
