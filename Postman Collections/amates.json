@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "889ed80c-311b-4e9a-b803-5903a3315edf",
-    "name": "SdkChats_Main_Testing",
+    "name": "SdkChats_Test",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -1279,33 +1279,6 @@
             }
           ],
           "id": "e4ddcc3a-fc96-4b7f-86e7-16718beca9ee",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "url": "{{URL}}/v1/chats/{{chatID}}/unmute"
-          },
-          "response": []
-        },
-        {
-          "name": "Reunmute topic",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "90aa4486-2c0c-484a-8490-663a43bc3f44",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "732e2b26-daff-45d1-895e-b337ee19fc3a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
