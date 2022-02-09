@@ -189,7 +189,7 @@
                   "        }\r",
                   "    \r",
                   "};\r",
-                  "    pm.test(\"Валидация JSON схемы\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
+                  "    pm.test(\"Валидация JSON схемы+проверка что токены вернулись с сервера\",()=> {pm.response.to.have.jsonSchema(schema)});\r",
                   "\r",
                   " //перезаписываем токены после Restore\r",
                   "var jsonData = pm.response.json()[\"tokens\"][\"accessToken\"];\r",
