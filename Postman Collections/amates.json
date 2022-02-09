@@ -615,7 +615,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ids\": {{usersArray}}\n}",
+              "raw": "{\n    \"ids\": [{{usersArray}}]\n}",
               "options": {
                 "raw": {
                   "language": "json"
