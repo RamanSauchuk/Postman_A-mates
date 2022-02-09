@@ -597,7 +597,8 @@
                 "id": "5500eceb-9b60-4923-907b-4f8d76f41920",
                 "exec": [
                   "let usersArray=[];\r",
-                  "usersArray.push(mess)\r",
+                  "let mess1=pm.globals.get(\"mess\")\r",
+                  "usersArray.push(mess1)\r",
                   "console.log(usersArray);"
                 ],
                 "type": "text/javascript"
