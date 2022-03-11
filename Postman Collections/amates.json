@@ -1166,7 +1166,7 @@
           "request": {
             "method": "POST",
             "header": [],
-            "url": "{{URL}}/v1/chats/100/leave"
+            "url": "{{URL}}/v1/chats/{{chatID}}/leave"
           },
           "response": []
         },
