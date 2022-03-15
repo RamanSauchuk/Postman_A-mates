@@ -1392,7 +1392,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"{{itemID}}\",\n    \"mimetype\": \"text/plain\"\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"{{currentMessage}}\",\n    \"mimetype\": \"text/plain\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
