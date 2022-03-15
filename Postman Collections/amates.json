@@ -874,7 +874,7 @@
                   "    pm.response.to.have.status(200);\r",
                   "});\r",
                   "pm.test(\"Response time is less than 300ms\", function () {\r",
-                  "    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(400);\r",
                   "});"
                 ],
                 "type": "text/javascript"
