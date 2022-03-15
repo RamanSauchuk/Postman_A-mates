@@ -1361,7 +1361,7 @@
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "var jsonData = pm.response.json()[\"id\"];\r",
-                  "    pm.environment.set(\"itemID\", jsonData);\r",
+                  "    pm.globals.set(\"itemID\", jsonData);\r",
                   ""
                 ],
                 "type": "text/javascript"
