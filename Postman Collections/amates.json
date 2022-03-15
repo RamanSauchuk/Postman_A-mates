@@ -1372,7 +1372,10 @@
               "script": {
                 "id": "01d3d086-7b73-4758-bc3c-e5c838a2317b",
                 "exec": [
-                  ""
+                  "let previousMessage=pm.globals.get(\"itemID\");\r",
+                  "console.log(previousMessage)\r",
+                  "let currentMessage=previousMessage+1\r",
+                  "console.log(currentMessage)"
                 ],
                 "type": "text/javascript"
               }
