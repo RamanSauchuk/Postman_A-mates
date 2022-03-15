@@ -2439,7 +2439,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"chatId\": {{chatID}},\n    \"messageId\": {{itemId}}\n}",
+              "raw": "{\n    \"chatId\": {{chatID}},\n    \"messageId\": {{itemID}}\n}",
               "options": {
                 "raw": {
                   "language": "json"
