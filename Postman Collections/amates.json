@@ -1944,8 +1944,8 @@
               "script": {
                 "id": "4fca172a-c513-4786-9453-9e6c596d7c13",
                 "exec": [
-                  "pm.globals.set('randomChatID',  _.random (6,242))\r",
-                  "pm.globals.set('randomItemId',  _.random (6,1124))"
+                  "//pm.globals.set('randomChatID',  _.random (6,242))\r",
+                  "//pm.globals.set('randomItemId',  _.random (6,1124))"
                 ],
                 "type": "text/javascript"
               }
