@@ -2899,6 +2899,28 @@
             "url": "{{URL}}/v1/metrics"
           },
           "response": []
+        },
+        {
+          "name": "create metrics_push_opened_reply",
+          "id": "6b30c5a6-b992-4dd2-bc9c-4123c3abb644",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"events\": [ {\r\n\t\t\"key\": \"push.opened\",\r\n\t\t\"createdAt\": 1643722917311,\r\n\t\t\"language\": \"ru_RU\",\r\n\t\t\"platform\": \"android\",\r\n\t\t\"version\": \"1.0\",\r\n\t\t\"id\": {{chatID}},\r\n\t\t\"type\": \"message\"\r\n\t}]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/metrics"
+          },
+          "response": []
         }
       ],
       "id": "2913b02c-d3fa-441c-8a7b-fe862961c08a"
