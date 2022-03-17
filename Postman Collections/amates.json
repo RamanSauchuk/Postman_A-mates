@@ -1720,7 +1720,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=5&authors=true",
+              "raw": "{{URL}}/v1/chats/{{chatID}}/messages/window?offset=0&limit=1000&authors=true&time=1647501422",
               "host": [
                 "{{URL}}"
               ],
@@ -1738,11 +1738,16 @@
                 },
                 {
                   "key": "limit",
-                  "value": "5"
+                  "value": "1000"
                 },
                 {
                   "key": "authors",
                   "value": "true"
+                },
+                {
+                  "key": "time",
+                  "value": "1647501422",
+                  "type": "text"
                 }
               ]
             }
