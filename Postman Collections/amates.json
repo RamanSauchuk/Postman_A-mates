@@ -2877,6 +2877,28 @@
             "url": "{{URL}}/v1/metrics"
           },
           "response": []
+        },
+        {
+          "name": "create metrics_push_opened Copy",
+          "id": "eaa44046-d568-4d27-8b69-69de61ed425f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"events\": [{\r\n\t\t\"key\": \"topic.seen\",\r\n\t\t\"createdAt\": 1647516686407,\r\n\t\t\"language\": \"ru_RU\",\r\n\t\t\"platform\": \"android\",\r\n\t\t\"version\": \"1.0.1\",\r\n\t\t\"id\": {{chatID}},\r\n\t\t\"status\": false\r\n\t}]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{URL}}/v1/metrics"
+          },
+          "response": []
         }
       ],
       "id": "2913b02c-d3fa-441c-8a7b-fe862961c08a"
