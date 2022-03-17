@@ -2879,7 +2879,7 @@
           "response": []
         },
         {
-          "name": "create metrics_push_opened Copy",
+          "name": "create metrics_topic_seen",
           "id": "eaa44046-d568-4d27-8b69-69de61ed425f",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
