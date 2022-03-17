@@ -2857,7 +2857,7 @@
       "name": "metrics",
       "item": [
         {
-          "name": "create metrics",
+          "name": "create metrics_push_opened",
           "id": "331a41fa-3d73-483f-bdd8-83cb55a7f78a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
