@@ -1888,7 +1888,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"itemId\": {{itemID}}\n}",
+              "raw": "{\n    \"itemId\":{{itemID}}\n   \n}",
               "options": {
                 "raw": {
                   "language": "json"
