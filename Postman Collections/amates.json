@@ -2879,7 +2879,7 @@
           "response": []
         },
         {
-          "name": "create metrics_push_opened_",
+          "name": "create metrics_push_opened_like",
           "id": "4d76f025-0678-4d9d-8bd6-2957c1c99a4e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
