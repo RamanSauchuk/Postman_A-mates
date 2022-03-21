@@ -2880,20 +2880,6 @@
         },
         {
           "name": "create metrics_push_opened_like",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "1e8fcd50-d355-499e-ab25-1fdda3075ecd",
-                "exec": [
-                  "let time=Date.now()\r",
-                  "console.log(time)\r",
-                  "pm.globals.set(\"timestamp\", time)"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
           "id": "4d76f025-0678-4d9d-8bd6-2957c1c99a4e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
