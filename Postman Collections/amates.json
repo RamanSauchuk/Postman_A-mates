@@ -2858,6 +2858,20 @@
       "item": [
         {
           "name": "create metrics_push_opened_message",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4b71ce15-2aa9-412f-a0b6-18468ad091a9",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "331a41fa-3d73-483f-bdd8-83cb55a7f78a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2867,7 +2881,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\t\"events\": [ {\r\n\t\t\"key\": \"push.opened\",\r\n\t\t\"createdAt\": 1643722917311,\r\n\t\t\"language\": \"ru_RU\",\r\n\t\t\"platform\": \"android\",\r\n\t\t\"version\": \"1.0\",\r\n\t\t\"id\": {{chatID}},\r\n\t\t\"type\": \"message\"\r\n\t}]\r\n}",
+              "raw": "{\r\n\t\"events\": [ {\r\n\t\t\"key\": \"push.opened\",\r\n\t\t\"createdAt\": 1647871065000,\r\n\t\t\"language\": \"ru_RU\",\r\n\t\t\"platform\": \"android\",\r\n\t\t\"version\": \"1.0\",\r\n\t\t\"id\": {{chatID}},\r\n\t\t\"type\": \"message\"\r\n\t}]\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2880,6 +2894,20 @@
         },
         {
           "name": "create metrics_push_opened_like",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "1e8fcd50-d355-499e-ab25-1fdda3075ecd",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "4d76f025-0678-4d9d-8bd6-2957c1c99a4e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
