@@ -2924,6 +2924,20 @@
         },
         {
           "name": "create metrics_push_opened_reply_topic",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "16ab57e9-4f4d-475e-9707-fdeb3fc59b72",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "d845b0cc-df83-44a0-a345-b347404dad7b",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
