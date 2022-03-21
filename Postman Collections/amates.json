@@ -2968,6 +2968,20 @@
         },
         {
           "name": "create metrics_push_opened_reply_test",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "92131c31-ffc9-44ba-bcb3-7a50b06cd194",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "6be715f3-d99f-4658-9460-2d7c15a44865",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
