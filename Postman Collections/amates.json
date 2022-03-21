@@ -2880,6 +2880,20 @@
         },
         {
           "name": "create metrics_push_opened_like",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "1e8fcd50-d355-499e-ab25-1fdda3075ecd",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "4d76f025-0678-4d9d-8bd6-2957c1c99a4e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2902,6 +2916,20 @@
         },
         {
           "name": "create metrics_push_opened_reply",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4eac716d-73b1-4f68-9b66-24ee713b28a5",
+                "exec": [
+                  "let time=Date.now()\r",
+                  "console.log(time)\r",
+                  "pm.globals.set(\"timestamp\", time)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "6b30c5a6-b992-4dd2-bc9c-4123c3abb644",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
