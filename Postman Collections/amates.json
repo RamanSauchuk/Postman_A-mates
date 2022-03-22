@@ -482,7 +482,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"uid\": \"uid3\",\n    \"firstName\": \"firstyName\",\n    \"secondName\": \"secondName\",\n    \"lastName\": \"Last name\",\n    \"displayName\": \"displayName\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"secondPhone\": \"secondPhone\",\n    \"age\": 1,\n    \"gender\": 1\n}",
+              "raw": "{\n    \"uid\": \"uid3\",\n    \"avatarId\":{{avatarId}}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2810,7 +2810,7 @@
                   "   });\r",
                   "\r",
                   "let avatarId = pm.response.json()[\"previewId\"]\r",
-                  "    pm.globals.set(\"avatarId\", messageId);\r",
+                  "    pm.globals.set(\"avatarId\", avatarId);\r",
                   "  "
                 ],
                 "type": "text/javascript"
@@ -2830,7 +2830,7 @@
                 {
                   "key": "file",
                   "type": "file",
-                  "src": "/C:/1.jpg"
+                  "src": "/C:/2.jpg"
                 }
               ]
             },
