@@ -1372,8 +1372,10 @@
               "script": {
                 "id": "01d3d086-7b73-4758-bc3c-e5c838a2317b",
                 "exec": [
+                  "//Отображает предыдущее ID сообщения\r",
                   "let previousMessage=pm.globals.get(\"itemID\");\r",
                   "console.log(previousMessage)\r",
+                  "//Записываем в переменную текущий ID(Для проверки сортировки+фильтров)\r",
                   "let currentMessage=previousMessage+1;\r",
                   "console.log(currentMessage)\r",
                   "pm.globals.set(\"currentMessage\", currentMessage)\r",
@@ -1392,7 +1394,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"{{currentMessage}}\",\n    \"mimetype\": \"text/plain\"\n}",
+              "raw": "{\n    \"type\": \"text\",\n    \"content\": \"Only text\",\n    \"mimetype\": \"text/plain\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
