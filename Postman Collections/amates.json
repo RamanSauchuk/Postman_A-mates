@@ -2757,7 +2757,7 @@
       "name": "files",
       "item": [
         {
-          "name": "upload image",
+          "name": "upload image for messages/replies",
           "event": [
             {
               "listen": "test",
@@ -2777,6 +2777,47 @@
             }
           ],
           "id": "342f83c9-ec79-4dab-98e4-197a8eb0087c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/C:/1.jpg"
+                }
+              ]
+            },
+            "url": "{{URL}}/v1/files/uploadImage"
+          },
+          "response": []
+        },
+        {
+          "name": "upload image for user profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "   });\r",
+                  "\r",
+                  "let avatarId = pm.response.json()[\"previewId\"]\r",
+                  "    pm.globals.set(\"avatarId\", messageId);\r",
+                  "  "
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "7a5c1283-6bd6-4f2e-95a8-5e1e97a22451",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
