@@ -1436,7 +1436,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": 1,\r\n    \"previewId\": 2,\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
+              "raw": "{\r\n    \"type\": \"image-text\",\r\n    \"imageId\": {{imageId}},\r\n    \"previewId\": {{previewId}},\r\n    \"content\": \"nice!\",\r\n    \"mimetype\": \"image/jpeg\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
