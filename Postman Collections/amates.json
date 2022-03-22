@@ -2809,8 +2809,11 @@
                   "    pm.response.to.have.status(200);\r",
                   "   });\r",
                   "\r",
-                  "let avatarId = pm.response.json()[\"previewId\"]\r",
+                  "let avatarId = pm.response.json()[\"id\"]\r",
                   "    pm.globals.set(\"avatarId\", avatarId);\r",
+                  "\r",
+                  " let prevAvatarId = pm.response.json()[\"previewId\"]\r",
+                  "    pm.globals.set(\"prevAvatarId\", avatarId);\r",
                   "  "
                 ],
                 "type": "text/javascript"
