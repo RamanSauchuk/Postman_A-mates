@@ -2768,7 +2768,7 @@
                   "let messageId = pm.response.json()[\"id\"];\r",
                   "let prewievId = pm.response.json()[\"previewId\"]\r",
                   "    pm.globals.set(\"imageId\", messageId);\r",
-                  "    pm.globals.set(\"messageId\", prewievId)"
+                  "    pm.globals.set(\"previewId\", prewievId)"
                 ],
                 "type": "text/javascript"
               }
