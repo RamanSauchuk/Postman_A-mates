@@ -1414,7 +1414,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"type\": \"image\",\n    \"imageId\": 28,\n    \"previewId\": 29,\n    \"mimetype\": \"image/jpeg\"\n}",
+              "raw": "{\n    \"type\": \"image\",\n    \"imageId\": {{imageId}},\n    \"previewId\": {{previewId}},\n    \"mimetype\": \"image/jpeg\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
