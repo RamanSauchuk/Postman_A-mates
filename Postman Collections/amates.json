@@ -1423,7 +1423,7 @@
                 }
               }
             },
-            "url": "{{URL}}/v1/chats/1/messages/"
+            "url": "{{URL}}/v1/chats/{{chatID}}/messages/"
           },
           "response": []
         },
