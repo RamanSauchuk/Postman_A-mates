@@ -482,7 +482,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"uid\": \"uid3\",\n    \"avatarId\":{{avatarId}}\n}",
+              "raw": "{\n    \"uid\": \"{{uid}}\",\n    \"avatarId\":{{avatarId}}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1350,7 +1350,7 @@
       "name": "messages",
       "item": [
         {
-          "name": "create message",
+          "name": "create message Only text",
           "event": [
             {
               "listen": "test",
