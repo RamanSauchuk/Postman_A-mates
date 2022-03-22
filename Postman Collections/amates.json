@@ -2755,6 +2755,41 @@
       "name": "files",
       "item": [
         {
+          "name": "upload image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "342f83c9-ec79-4dab-98e4-197a8eb0087c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/C:/1.jpg"
+                }
+              ]
+            },
+            "url": "{{URL}}/v1/files/uploadImage"
+          },
+          "response": []
+        },
+        {
           "name": "upload file",
           "id": "419a1712-887c-461e-8dcc-0495c6e19f2a",
           "protocolProfileBehavior": {
@@ -2787,43 +2822,6 @@
             "method": "GET",
             "header": [],
             "url": "https://sdk-chats.s3.amazonaws.com/73d7f7f927e5b99e49e37ccd1abba0e2"
-          },
-          "response": []
-        },
-        {
-          "name": "upload image",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "8673d081-afb0-4f7e-8974-b3d6fee1b850",
-                "exec": [
-                  "if (pm.response.status === 401) {\r",
-                  "    postman.setNextRequest(\"restore\");\r",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "342f83c9-ec79-4dab-98e4-197a8eb0087c",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "file",
-                  "type": "file",
-                  "src": "/C:/1.jpg"
-                }
-              ]
-            },
-            "url": "{{URL}}/v1/files/uploadImage"
           },
           "response": []
         },
