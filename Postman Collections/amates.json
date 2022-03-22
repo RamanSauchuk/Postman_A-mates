@@ -457,7 +457,7 @@
           "response": []
         },
         {
-          "name": "update current user Edit UID",
+          "name": "update current user",
           "event": [
             {
               "listen": "test",
