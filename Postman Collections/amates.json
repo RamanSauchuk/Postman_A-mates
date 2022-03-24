@@ -890,7 +890,12 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"title\":\"Без картинки\",\r\n    \"description\": \"test\"\r\n}"
+              "raw": "{\r\n    \"title\":\"Без картинки\",\r\n    \"description\": \"test\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{URL}}/v1/chats/"
           },
