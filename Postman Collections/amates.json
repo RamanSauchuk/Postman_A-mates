@@ -494,43 +494,6 @@
           "response": []
         },
         {
-          "name": "update current user Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "2d1eaeb6-c652-45e8-9992-02f575a0c699",
-                "exec": [
-                  "pm.test(\"Статус код 200\", function () {\r",
-                  "    pm.response.to.have.status(200);\r",
-                  "   });\r",
-                  "  "
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "1aebc143-88ce-423a-8c12-3598da12f9cf",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"uid\": \"{{uid}}\",\n    \"avatarId\":{{avatarId}}\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{URL}}/v1/auth/user/{{userId}}"
-          },
-          "response": []
-        },
-        {
           "name": "get user by id",
           "event": [
             {
@@ -2452,7 +2415,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"chatId\": {{chatID}}\n}",
+              "raw": "{\n    \"chatId\": 3291\n}",
               "options": {
                 "raw": {
                   "language": "json"
