@@ -865,7 +865,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "a8993b87-e70d-48eb-aa64-86e646e62e3e",
+                "id": "639c00eb-c17e-4574-8311-1f873673feef",
                 "exec": [
                   "var jsonData = pm.response.json()[\"id\"];\r",
                   "    pm.globals.set(\"chatID\", jsonData);\r",
@@ -890,12 +890,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\":\"Тест фильтров+скролл+обноление\",\n    \"description\": \"test\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\r\n    \"title\":\"Без картинки\",\r\n    \"description\": \"test\"\r\n}"
             },
             "url": "{{URL}}/v1/chats/"
           },
